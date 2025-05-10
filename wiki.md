@@ -2,7 +2,7 @@
 title: Wiki.js on Docker Deployment
 description: How to install Wiki.js on Docker
 published: true
-date: 2025-05-10T21:22:08.069Z
+date: 2025-05-10T21:22:37.730Z
 tags: wiki.js, docker, nginx-proxy-manager, portainer, cloudflare, ssl, token
 editor: markdown
 dateCreated: 2025-04-27T18:57:33.840Z
