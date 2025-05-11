@@ -2,21 +2,22 @@
 title: Post Migration & Verification
 description: Configure and verify access to npm and pswiki
 published: true
-date: 2025-05-11T18:09:53.414Z
+date: 2025-05-11T18:21:36.661Z
 tags: configuration, migration, post migration, verification
 editor: markdown
 dateCreated: 2025-05-11T18:09:53.414Z
 ---
 
-# 🧪 Post-Migration Verification and Configuration
-
-### ✅ 1. Verify Stacks and Containers in Portainer
+## 🧪 Post-Migration Notice
+After migration, it is crucial to verify that the Production Server is fully operational and accessible before decommissioning the Test Server.
+This ensures service continuity, reduces the risk of downtime, and helps maintain high service quality during the transition.
+## ✅ Verify Stacks and Containers in Portainer
 
 > **ℹ️ NOTE**  
 Portainer provides a web-based UI to visually inspect all Docker stacks, containers, volumes, and networks
 {.is-info}
 
-#### Steps 
+### Steps 
 
 1. Open a browser and go to your Server 2 IP and Portainer port (usually `9000` or `9443`):
    ```
@@ -34,7 +35,7 @@ Portainer provides a web-based UI to visually inspect all Docker stacks, contain
 {.is-success}
 
 
-### 🌐 2. Access and Update Nginx Proxy Manager (NPM)
+## 🌐 Access and Update Nginx Proxy Manager (NPM)
 
 
 >  **⚠️ WARNING**  
@@ -72,7 +73,7 @@ Update this to reflect the Server 2's IP
 NPM now recognizes the new IP and can route traffic correctly
 {.is-success}
 
-### 🧱 3. Configure the Firewall on Server 2
+## 🧱 Configure the Firewall on Server 2
 
 > **❌ ERROR** 
 	If you cannot access ports externally, your firewall may be blocking them.
@@ -98,59 +99,44 @@ NPM now recognizes the new IP and can route traffic correctly
    ```bash
    sudo ufw status numbered
    ```
-### 🧱🔥 4. Congifure pfsense firewall
+### 🧱🔥 Congifure pfsense firewall
 **Refer to pfsense configuration [here](/wiki/nginx/pfsense)**
 > **✅ SUCCESS**  
-> External devices should now be able to access NPM and Wiki.js on the correct ports.
+> External devices should now be able to access Wiki.js on the ports.
+{.is-success}
+
 
 ---
 
-### 📚 4. Verify Wiki.js State and Access
+## 📚 Verify Wiki.js State and Access
 
 > **ℹ️ INFO**  
 > The goal here is to ensure all data (pages, users, files) was preserved during migration.
+{.is-info}
+
 
 **Steps:**
 
 1. Open a browser and go to:
-   ```
-   http://192.168.50.20:3080
-   ```
+-	http://pswiki.edemseg.com
 
 2. Login with your Wiki.js admin credentials.
 
 3. Navigate to:
-   ```
-   Administration > General > Site URL
-   ```
+   **Administration** > **General**
 
-4. Update from:
-   ```
-   http://localhost:3000
-   ```
-   To:
-   ```
-   http://192.168.50.20:3080
-   ```
-
-5. Save and **restart the Wiki.js container** if needed:
-   ```bash
-   docker restart <wiki-container-name>
-   ```
-
-6. Confirm:
+4. Confirm:
    - Pages and edits are intact
    - Media (e.g., images) is loading correctly
    - External users can view content via the new IP
 
 > **✅ SUCCESS**  
-> Your Wiki.js installation is fully functional, with content and settings preserved.
+>  Wiki.js installation is fully functional, with content and settings preserved.
+{.is-success}
 
----
+## 🧼 Final Recommendations
 
-### 🧼 Final Recommendations
-
-- **Back up** your new server using `tar`, `rsync`, or Docker volume snapshots.
+- **Back up** Production Server using `tar`, `rsync`, or Docker volume snapshots.
 - **Document all container and volume paths** for easier future migrations.
 - **Secure** external access via HTTPS and limit open ports as needed.
 
