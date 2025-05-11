@@ -2,7 +2,7 @@
 title: Redundant AD Domain Setup
 description: Primary & Secondary DC Configuration
 published: true
-date: 2025-05-11T19:06:50.090Z
+date: 2025-05-11T19:07:20.737Z
 tags: ad dc, redundant, primary dc, secondary dc
 editor: markdown
 dateCreated: 2025-05-09T09:17:16.534Z
