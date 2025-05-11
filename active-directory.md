@@ -2,7 +2,7 @@
 title: Redundant AD Domain Setup
 description: Primary & Secondary DC Configuration
 published: true
-date: 2025-05-11T19:07:20.737Z
+date: 2025-05-11T19:27:00.466Z
 tags: ad dc, redundant, primary dc, secondary dc
 editor: markdown
 dateCreated: 2025-05-09T09:17:16.534Z
@@ -23,6 +23,11 @@ Before proceeding, ensure:
 - ✅ **Windows Server** is installed & updated.  
   📌 Refer to Windows Server on Proxmox **[here](/winsvr)**
 - ✅ A **static IP address** is configured (to avoid network conflicts).
+-	 **Static IP address configuration**:
+   a.  Open **Control Panel > Network & Internet > Network Connections**
+   b.  Right-click the active network → Select **Properties**
+   c.  Select **Internet Protocol Version 4 (TCP/IPv4)** → Click **Properties**
+   d.  Manually set the IP (e.g., `192.168.60.100`)
 - ✅ The server is **not already a Domain Controller**.
 
 ---
