@@ -2,7 +2,7 @@
 title: Overview
 description: Why it Matters.
 published: true
-date: 2025-05-11T23:46:27.681Z
+date: 2025-05-11T23:58:06.131Z
 tags: 
 editor: markdown
 dateCreated: 2025-04-27T18:50:51.086Z
@@ -52,7 +52,7 @@ In any technical environment—whether managing IT infrastructure, troubleshooti
 <div class="image-container">
   <div class="image-box">
     <h3><a href="/proxmox">
-      <img src="/ubun.jpeg" alt="Image 1">
+      <img src="/assets/ubun.jpeg" alt="Image 1">
       Ubuntu Server on Proxmox</a>
     </h3><p>A Ubuntu Server setup on Proxmox, optimizing virtualization with QEMU, enhancing networking, security, and system management for efficient deployment.</p>
   </div>
