@@ -2,7 +2,7 @@
 title: Additional Domain Controller
 description: Secondary Active Directory Domain Controller
 published: true
-date: 2025-05-11T19:30:29.624Z
+date: 2025-05-11T19:34:28.980Z
 tags: replication, secondary dc, replica, backup dc
 editor: markdown
 dateCreated: 2025-05-11T19:24:17.455Z
@@ -94,3 +94,18 @@ Get-DnsServerZone -Name "edemseg.com"
 dcdiag /test:replications
 ```
 📌 Confirms replication health between domain controllers.
+<li class="config-item">
+  <div class="navigation">
+    <div class="nav-back">
+      <a href="#active-directory" class="back">Back 
+        <span class="label">Primary DC</span>
+      </a>
+    </div>
+    <span class="divider"></span>
+    <div class="nav-next">
+      <a href="/home#project" class="next">Home
+      <span class="label">Project Index</span>
+      </a>
+    </div>
+  </div>
+</li>
