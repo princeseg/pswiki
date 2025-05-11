@@ -2,7 +2,7 @@
 title: Ubuntu Server Migration 
 description: Migrating from Test to Production Environment
 published: true
-date: 2025-05-11T14:03:44.790Z
+date: 2025-05-11T14:04:40.950Z
 tags: migration, ubuntu, test, production
 editor: markdown
 dateCreated: 2025-04-29T14:06:04.636Z
