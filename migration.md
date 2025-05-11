@@ -2,7 +2,7 @@
 title: Ubuntu Server Migration 
 description: Migrating from Test to Production Environment
 published: true
-date: 2025-05-11T17:24:12.790Z
+date: 2025-05-11T19:01:08.224Z
 tags: migration, ubuntu, test, production
 editor: markdown
 dateCreated: 2025-04-29T14:06:04.636Z
@@ -31,7 +31,7 @@ dateCreated: 2025-04-29T14:06:04.636Z
   ```sh
   ping -c 4 192.168.50.20  # From Server 1
   ping -c 4 192.168.50.165 # From Server 2
-> ⚠️ **WARNING**
+>  **WARNING**
 > If ping fails, verify **firewall** rules and allow **ICMP traffic**.
 {.is-danger}
 
