@@ -2,7 +2,7 @@
 title: Wiki.js on Docker Deployment
 description: How to install Wiki.js on Docker
 published: true
-date: 2025-05-11T18:26:06.018Z
+date: 2025-05-11T18:27:14.569Z
 tags: wiki.js, docker, nginx-proxy-manager, portainer, cloudflare, ssl, token
 editor: markdown
 dateCreated: 2025-04-27T18:57:33.840Z
@@ -125,7 +125,8 @@ volumes:
 3. Click on **Deploy the stack** button.
 4. Access **nginx proxy manager** on **localhost:52481** Example **192.168.50.165:52481**
 > port **52841** in the example (192.168.50.165:52841) must be replaced with the same edited port number in the Web editor
-{is.error}
+{.is-danger}
+
 6. Login with default details to change administrator credentials:
    **username**: admin@example.com
    **password**: changeme
