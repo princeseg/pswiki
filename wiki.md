@@ -2,7 +2,7 @@
 title: Wiki.js on Docker Deployment
 description: How to install Wiki.js on Docker
 published: true
-date: 2025-05-10T21:22:37.730Z
+date: 2025-05-11T17:31:22.643Z
 tags: wiki.js, docker, nginx-proxy-manager, portainer, cloudflare, ssl, token
 editor: markdown
 dateCreated: 2025-04-27T18:57:33.840Z
@@ -118,10 +118,17 @@ volumes:
    **password**: changeme
 
 <li class="config-item">
-  <a href="/wiki/nginx" class="configuration">
-      Next
-    <em>
-      Nginx and Cloudflare configuration.
-    </em>
-  </a>
+  <div class="navigation">
+    <div class="nav-back">
+      <a href="#nginx" class="back">Top 
+        <span class="label">Beginning</span>
+      </a>
+    </div>
+    <span class="divider"></span>
+    <div class="nav-next">
+      <a href="/proxmox/ubuntu" class="next">Next
+      <span class="label">Nginx and Cloudflare configuration.</span>
+      </a>
+    </div>
+  </div>
 </li>
