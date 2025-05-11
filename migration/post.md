@@ -2,7 +2,7 @@
 title: Post Migration & Verification
 description: Configure and verify access to npm and pswiki
 published: true
-date: 2025-05-11T18:21:36.661Z
+date: 2025-05-11T18:23:14.144Z
 tags: configuration, migration, post migration, verification
 editor: markdown
 dateCreated: 2025-05-11T18:09:53.414Z
@@ -13,7 +13,7 @@ After migration, it is crucial to verify that the Production Server is fully ope
 This ensures service continuity, reduces the risk of downtime, and helps maintain high service quality during the transition.
 ## ✅ Verify Stacks and Containers in Portainer
 
-> **ℹ️ NOTE**  
+> **NOTE**  
 Portainer provides a web-based UI to visually inspect all Docker stacks, containers, volumes, and networks
 {.is-info}
 
@@ -30,7 +30,7 @@ Portainer provides a web-based UI to visually inspect all Docker stacks, contain
    - **Stacks** — Confirm your stacks (`nginx-proxy`, `pswiki`) are listed.
    - **Containers** — Ensure all required containers (Nginx Proxy Manager, Wiki.js, Postgres, Portainer) are running and healthy.
 
-> **✅ SUCCESS** 
+> **SUCCESS** 
 	All stacks should show a green status and all containers should be marked as running.
 {.is-success}
 
@@ -38,10 +38,10 @@ Portainer provides a web-based UI to visually inspect all Docker stacks, contain
 ## 🌐 Access and Update Nginx Proxy Manager (NPM)
 
 
->  **⚠️ WARNING**  
+>  **WARNING**  
 The old NPM base URL may still be pointing to Server 1's IP. 
 Update this to reflect the Server 2's IP
-{.is-danger}
+{.is-warning}
 
 **Steps:**
 
@@ -69,7 +69,7 @@ Update this to reflect the Server 2's IP
    sudo docker restart nginx-proxy-app-1
    ```
 
-> **✅ SUCCESS** 
+> **SUCCESS** 
 NPM now recognizes the new IP and can route traffic correctly
 {.is-success}
 
@@ -101,7 +101,7 @@ NPM now recognizes the new IP and can route traffic correctly
    ```
 ### 🧱🔥 Congifure pfsense firewall
 **Refer to pfsense configuration [here](/wiki/nginx/pfsense)**
-> **✅ SUCCESS**  
+> **SUCCESS**  
 > External devices should now be able to access Wiki.js on the ports.
 {.is-success}
 
@@ -110,7 +110,7 @@ NPM now recognizes the new IP and can route traffic correctly
 
 ## 📚 Verify Wiki.js State and Access
 
-> **ℹ️ INFO**  
+> **ℹINFO**  
 > The goal here is to ensure all data (pages, users, files) was preserved during migration.
 {.is-info}
 
@@ -130,7 +130,7 @@ NPM now recognizes the new IP and can route traffic correctly
    - Media (e.g., images) is loading correctly
    - External users can view content via the new IP
 
-> **✅ SUCCESS**  
+> **SUCCESS**  
 >  Wiki.js installation is fully functional, with content and settings preserved.
 {.is-success}
 
