@@ -2,13 +2,13 @@
 title: Redundant AD Domain Setup
 description: Primary & Secondary DC Configuration
 published: true
-date: 2025-05-11T18:58:00.750Z
+date: 2025-05-11T19:06:50.090Z
 tags: ad dc, redundant, primary dc, secondary dc
 editor: markdown
 dateCreated: 2025-05-09T09:17:16.534Z
 ---
 
-# Active Directory Domain Services (AD DS)
+# Active Directory Domain Services (AD DS){#active-directory}
 
 ## Overview
 This guide documents the installation and configuration of Active Directory Domain Services (AD DS) on a Windows Server, transforming it into a Domain Controller (DC). 
@@ -93,3 +93,21 @@ Run the following commands in **PowerShell** to confirm the setup:
   ```
 - 🔄 Set up **backup policies** for disaster recovery.
 - 🔒 Secure domain authentication using **GPOs** (Group Policy Objects) and **RBAC** (Role-Based Access Control) settings.
+
+<li class="config-item">
+  <div class="navigation">
+    <div class="nav-back">
+      <a href="#active-directory" class="back">Top 
+        <span class="label"> Beginning</span>
+      </a>
+    </div>
+    <span class="divider"></span>
+    <div class="nav-next">
+      <a href="/active-directory/replica" class="next">Next
+      <span class="label">Replica DC</span>
+      </a>
+    </div>
+  </div>
+</li>
+
+
