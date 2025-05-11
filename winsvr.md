@@ -2,7 +2,7 @@
 title: Windows server on Proxmox
 description: Installing Windows server 2025 on proxmox hypervisor
 published: true
-date: 2025-05-11T19:03:03.162Z
+date: 2025-05-11T19:03:52.654Z
 tags: server, windows, 2025
 editor: markdown
 dateCreated: 2025-05-06T14:49:37.230Z
@@ -115,20 +115,3 @@ IF Not
 9. Open **Console**.
 
 Congratulations! Your Windows Server 2025 VM is successfully configured. 🚀
-
-<li class="config-item">
-  <div class="navigation">
-    <div class="nav-back">
-      <a href="#migration" class="back">Top 
-        <span class="label"> Beginning</span>
-      </a>
-    </div>
-    <span class="divider"></span>
-    <div class="nav-next">
-      <a href="/migration/post" class="next">Next
-      <span class="label">Post Migration</span>
-      </a>
-    </div>
-  </div>
-</li>
-
