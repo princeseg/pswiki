@@ -2,13 +2,13 @@
 title: Wiki.js on Docker Deployment
 description: How to install Wiki.js on Docker
 published: true
-date: 2025-05-11T17:46:06.381Z
+date: 2025-05-11T17:47:19.647Z
 tags: wiki.js, docker, nginx-proxy-manager, portainer, cloudflare, ssl, token
 editor: markdown
 dateCreated: 2025-04-27T18:57:33.840Z
 ---
 
-## Overview
+## Overview{#nginx}
 Deploy a private documentation platform (**Wiki.js**) on **Ubuntu server** using **Docker container**, managed via **Portainer GUI** and make it accessible via a custom domain using **Nginx proxy manager**
 
 ---
@@ -97,7 +97,7 @@ volumes:
 
 ---
 
-## Install Nginx Proxy Manager on Portainer{#nginx}
+## Install Nginx Proxy Manager on Portainer
 1. Installed and deployed **Nginx Proxy Manager**
   **a**. Click on **Stacks** in the left sidebar navigation.
 	**b**. Click on the **+ Add stack** button.
