@@ -2,13 +2,13 @@
 title: Ubuntu Server Migration 
 description: Migrating from Test to Production Environment
 published: true
-date: 2025-05-11T17:19:42.345Z
+date: 2025-05-11T17:24:12.790Z
 tags: migration, ubuntu, test, production
 editor: markdown
 dateCreated: 2025-04-29T14:06:04.636Z
 ---
 
-# Ubuntu Server & Docker Container and Volume Migration
+# Ubuntu Server & Docker Container and Volume Migration {#migration}
 
 > Throughout this document:
 **Server 1** refers to **Test Svr** (Source Server)
@@ -241,162 +241,18 @@ Disk Space: Ensure **Server 2** has enough free space.
 - All containers and volumes transferred
 - Portainer, Nginx Proxy Manager, Wiki.js, and PostgreSQL are live
 
-## 🧪 Post-Migration Verification and Configuration
-
----
-
-### ✅ 1. Verify Stacks and Containers in Portainer
-
-> **ℹ️ INFO**  
-> Portainer provides a web-based UI to visually inspect all Docker stacks, containers, volumes, and networks.
-
-**Steps:**
-
-1. Open a browser and go to your Server 2 IP and Portainer port (usually `9000` or `9443`):
-   ```
-   http://192.168.50.20:9000
-   ```
-
-2. Log in with your admin credentials.
-
-3. In the **Portainer Dashboard**, navigate to:
-   - **Stacks** — Confirm your stacks (`nginx-proxy`, `pswiki`) are listed.
-   - **Containers** — Ensure all required containers (Nginx Proxy Manager, Wiki.js, Postgres, Portainer) are running and healthy.
-
-> **✅ SUCCESS**  
-> All stacks should show a green status and all containers should be marked as running.
-
----
-
-### 🌐 2. Access and Update Nginx Proxy Manager (NPM)
-
-> **⚠️ WARNING**  
-> Your old NPM base URL may still be pointing to your previous server’s IP. Update this to reflect the new server IP.
-
-**Steps:**
-
-1. Access NPM via the IP and port defined in your `docker-compose.yml`. For example:
-   ```
-   http://localhost:56380
-   ```
-
-2. Login with your admin email and password.
-
-3. Navigate to:
-   ```
-   Settings > General
-   ```
-
-4. Update the `Hostname` or `Domain Names` to:
-   ```
-   192.168.50.20
-   ```
-
-5. Save the changes.
-
-6. Restart the NPM container if necessary:
-   ```bash
-   docker restart <nginx-proxy-container-name>
-   ```
-
-> **✅ SUCCESS**  
-> NPM now recognizes the new IP and can route traffic correctly.
-
----
-
-### 🔥 3. Configure the Firewall on Server 2
-
-> **❌ ERROR**  
-> If you cannot access ports externally, your firewall may be blocking them.
-
-**Steps:**
-
-1. Check which firewall is active. For Ubuntu, it's typically UFW:
-   ```bash
-   sudo ufw status
-   ```
-
-2. Allow required ports:
-   ```bash
-   sudo ufw allow 56380    # HTTP
-   sudo ufw allow 56881    # Admin UI
-   sudo ufw allow 59443    # HTTPS
-   sudo ufw allow 3080     # Wiki.js
-   sudo ufw reload
-   ```
-
-3. Confirm rules:
-   ```bash
-   sudo ufw status numbered
-   ```
-
-> **✅ SUCCESS**  
-> External devices should now be able to access NPM and Wiki.js on the correct ports.
-
----
-
-### 📚 4. Verify Wiki.js State and Access
-
-> **ℹ️ INFO**  
-> The goal here is to ensure all data (pages, users, files) was preserved during migration.
-
-**Steps:**
-
-1. Open a browser and go to:
-   ```
-   http://192.168.50.20:3080
-   ```
-
-2. Login with your Wiki.js admin credentials.
-
-3. Navigate to:
-   ```
-   Administration > General > Site URL
-   ```
-
-4. Update from:
-   ```
-   http://localhost:3000
-   ```
-   To:
-   ```
-   http://192.168.50.20:3080
-   ```
-
-5. Save and **restart the Wiki.js container** if needed:
-   ```bash
-   docker restart <wiki-container-name>
-   ```
-
-6. Confirm:
-   - Pages and edits are intact
-   - Media (e.g., images) is loading correctly
-   - External users can view content via the new IP
-
-> **✅ SUCCESS**  
-> Your Wiki.js installation is fully functional, with content and settings preserved.
-
----
-
-### 🧼 Final Recommendations
-
-- **Back up** your new server using `tar`, `rsync`, or Docker volume snapshots.
-- **Document all container and volume paths** for easier future migrations.
-- **Secure** external access via HTTPS and limit open ports as needed.
-
-
 
 <li class="config-item">
   <div class="navigation">
     <div class="nav-back">
-      <a href="/wiki" class="back">Back 
-        <span class="label">Wiki Deployment on Docker</span>
+      <a href="#migration" class="back">Top 
+        <span class="label"> Beginning</span>
       </a>
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/wiki/nginx/pfsense" class="next">Next
-      <span class="label">Firewall Configuration</span>
+      <a href="/migration/post" class="next">Next
+      <span class="label">Post Migration</span>
       </a>
     </div>
   </div>
