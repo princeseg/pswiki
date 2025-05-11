@@ -2,7 +2,7 @@
 title: Ubuntu Server Migration 
 description: Migrating from Test to Production Environment
 published: true
-date: 2025-05-11T14:04:40.950Z
+date: 2025-05-11T14:21:47.607Z
 tags: migration, ubuntu, test, production
 editor: markdown
 dateCreated: 2025-04-29T14:06:04.636Z
@@ -50,8 +50,45 @@ Disk Space: Ensure **Server 2** has enough free space.
   ```sh
   ssh edem@192.168.50.20
   
- -	If SSH fails:
-#### 🔐 Test SSH Connectivity
-```plaintext
-ssh edem@192.168.50.20
+- If SSH fails::
+  ```sh
+  sudo passwd root
+  sudo nano /etc/ssh/sshd_config
+
+- Update:
+  ```sh
+  PasswordAuthentication yes
+  PermitRootLogin yes
+
+- Restart SSH:
+  ```sh
+  sudo systemctl restart ssh
+
+### 🔄 Backup and Transfer Configurations
+- #### 📁 System Files (Optional)
+  ```sh
+  sudo scp -r /etc/ edem@192.168.50.20:/etc/
+  sudo scp /etc/passwd /etc/shadow /etc/group /etc/gshadow edem@192.168.50.20:/etc/
+  sudo rsync -avz /home/ edem@192.168.50.20:/home/
+
+### 🔎 Identify Running Services
+- #### 📁 System Files (Optional)
+  ```sh
+  sudo scp -r /etc/ edem@192.168.50.20:/etc/
+  sudo scp /etc/passwd /etc/shadow /etc/group /etc/gshadow edem@192.168.50.20:/etc/
+  sudo rsync -avz /home/ edem@192.168.50.20:/home/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
