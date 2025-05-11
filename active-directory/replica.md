@@ -2,7 +2,7 @@
 title: Additional Domain Controller
 description: Secondary Active Directory Domain Controller
 published: true
-date: 2025-05-11T19:24:17.455Z
+date: 2025-05-11T19:30:29.624Z
 tags: replication, secondary dc, replica, backup dc
 editor: markdown
 dateCreated: 2025-05-11T19:24:17.455Z
@@ -16,8 +16,8 @@ dateCreated: 2025-05-11T19:24:17.455Z
    - Open **Control Panel > Network & Internet > Network Connections**
    - Right-click the active network → Select **Properties**
    - Select **Internet Protocol Version 4 (TCP/IPv4)** → Click **Properties**
-   - Manually set the IP (e.g., `192.168.1.20`)
-   - Set the **Primary DC** as the DNS server (e.g., `192.168.1.10`)
+   - Manually set the IP (e.g., `192.168.60.101`)
+   - Set the **Primary DC** as the DNS server (e.g., `192.168.60.100`)
 
 3. Join the **domain**:
    - Right-click **This PC** → Select **Properties**
