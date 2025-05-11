@@ -2,7 +2,7 @@
 title: Overview
 description: Why it Matters.
 published: true
-date: 2025-05-11T23:41:53.968Z
+date: 2025-05-11T23:43:38.684Z
 tags: 
 editor: markdown
 dateCreated: 2025-04-27T18:50:51.086Z
@@ -11,7 +11,7 @@ dateCreated: 2025-04-27T18:50:51.086Z
 <h2 class="header-overview" style="color: #00008b;">
   Welcome to PSWiki – A Living Technical Documentation
 </h2>
-![u2.jpeg](/ubuntu-images/u2.jpeg)
+
 In the ever-evolving world of IT, knowledge is fluid—what works today might be obsolete tomorrow. I often find myself retracing steps, trying to recall how I configured a specific setup or resolved a tricky issue. Sound familiar? We’ve all spent far too much time trying to reconstruct past configurations instead of focusing on innovation.
 
 That’s where ***PSWiki*** comes in—a dedicated documentation hub designed to serve as my technical reference, ensuring that no project, solution, or troubleshooting insight is lost to memory gaps.
@@ -52,13 +52,13 @@ In any technical environment—whether managing IT infrastructure, troubleshooti
 <div class="image-container">
   <div class="image-box">
     <h3><a href="/proxmox">
-      <img src="ubun.jpeg" alt="Image 1">
+      <img src="/ubun.jpeg" alt="Image 1">
       Ubuntu Server on Proxmox</a>
     </h3><p>A Ubuntu Server setup on Proxmox, optimizing virtualization with QEMU, enhancing networking, security, and system management for efficient deployment.</p>
   </div>
   <div class="image-box">
     <h3><a href="/firewall">
-      <img src="pf.png" alt="Image 2">
+      <img src="/pf.png" alt="Image 2">
       pfsense Firewall and Vlans</a></h3>
     <p>A pfSense firewall and VLANs setup enhancing network segmentation, security, and traffic management for efficient and scalable virtualization in clustered environments.</p>
   </div>
@@ -66,13 +66,13 @@ In any technical environment—whether managing IT infrastructure, troubleshooti
 <div class="image-container">
   <div class="image-box">
     <h3><a href="/wiki">
-      <img src="wik.png" alt="Image 3">
+      <img src="/wik.png" alt="Image 3">
       Docker-Wiki.js-Nginx</a></h3>
     <p>Deploying Wiki.js on Docker with Portainer and Nginx Proxy Manager for seamless content management, security, and optimized reverse proxy configurations.</p>
   </div>
   <div class="image-box">
     <h3><a href="/migration">
-      <img src="migr.png" alt="Image 4">
+      <img src="/migr.png" alt="Image 4">
       Ubuntu Server Migration</a></h3>
     <p>Transitioning a Ubuntu Server from test to production, ensuring optimized configurations, security hardening, performance tuning, and seamless deployment for scalability.</p>
   </div>
