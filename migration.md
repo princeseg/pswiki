@@ -2,7 +2,7 @@
 title: Ubuntu Server Migration 
 description: Migrating from Test to Production Environment
 published: true
-date: 2025-05-11T14:43:04.466Z
+date: 2025-05-11T15:33:19.255Z
 tags: migration, ubuntu, test, production
 editor: markdown
 dateCreated: 2025-04-29T14:06:04.636Z
@@ -64,7 +64,7 @@ Disk Space: Ensure **Server 2** has enough free space.
   ```sh
   sudo systemctl restart ssh
 
-### 🔄 Backup and Transfer Configurations
+## 🔄 Backup and Transfer Configurations
 - #### 📁 System Files (Optional)
   ```sh
   sudo scp -r /etc/ edem@192.168.50.20:/etc/
@@ -77,9 +77,9 @@ Disk Space: Ensure **Server 2** has enough free space.
 	systemctl list-units --type=service --state=running
 	sudo docker ps -a
 
-### 📤 Export and Transfer Containers
+## 📤 Export and Transfer Containers
 
-**Stop and Export:**
+### 🛑 Stop and Export Containers
 - Stop all services to ensure consistency of data after export
   ```bash
   docker stop <container_id_or_name>
@@ -88,55 +88,72 @@ Disk Space: Ensure **Server 2** has enough free space.
   docker export -o wiki_backup.tar <wiki_id>
   docker export -o nginx_backup.tar <nginx_ida
 
-**Transfer to Server 2:**
-```bash
-scp *.tar edem@192.168.50.20:/home/edem/
-```
+### 🚀 Transfer to Server 2
+- Transfer all achived files to Server 2
+  ```bash
+		scp *.tar edem@192.168.50.20:/home/edem/
 
-**Import on Server 2:**
-```bash
-docker import /home/edem/portainer_backup.tar portainer_image
-docker import /home/edem/postgres_backup.tar postgres_image
-docker import /home/edem/wiki_backup.tar wiki_image
-docker import /home/edem/nginx_backup.tar nginx_image
-sudo docker images
-```
 
----
-
-### 4. 📁 Migrate Volumes
-
-**Archive Volumes on Server 1:**
-```bash
-tar -czvf volume_1.tar.gz -C /var/lib/docker/volumes/<volume_1>/_data .
-tar -czvf volume_2.tar.gz -C /var/lib/docker/volumes/<volume_2>/_data .
-tar -czvf volume_3.tar.gz -C /var/lib/docker/volumes/<volume_3>/_data .
-```
-
-**Transfer to Server 2:**
-```bash
-scp volume_*.tar.gz edem@192.168.50.20:/home/edem/
-```
-
-**Restore Volumes on Server 2:**
-```bash
-docker volume create <volume_name> # if not existing
-tar -xzvf /home/edem/volume_1.tar.gz -C /var/lib/docker/volumes/<volume_1>/_data
-```
+### 🔄 Import on Server 2
+- Import the images from each container to Server 2
+  ```bash
+	docker import /home/edem/portainer_backup.tar portainer_image
+	docker import /home/edem/postgres_backup.tar postgres_image
+	docker import /home/edem/wiki_backup.tar wiki_image
+	docker import /home/edem/nginx_backup.tar nginx_image
+	sudo docker images
 
 ---
 
-### 5. 🧱 Recreate Docker Compose Files
+## 📁 Migrate Volumes
+### ☑️ Check Volumes on Server 1 and note names
+- Note number of volumes and names
+  ```bash
+		sudo docker volume ls
+    
+### 🗂 Archive Volumes on Server 1
+- Archive each volume on Server 1
+  ```bash
+		tar -czvf volume_1.tar.gz -C /var/lib/docker/volumes/<volume_1>/_data .
+		tar -czvf volume_2.tar.gz -C /var/lib/docker/volumes/<volume_2>/_data .
+		tar -czvf volume_3.tar.gz -C /var/lib/docker/volumes/<volume_3>/_data .
 
-```bash
-mkdir -p ~/nginx-proxy
-mkdir -p ~/pswiki
-```
 
-**`nginx-proxy/docker-compose.yml`**
-```yaml
-services:
+
+### 🚚 Transfer to Server 2
+- From Server 1, transfer all volumes to Server 2
+  ```bash
+	scp volume_*.tar.gz edem@192.168.50.20:/home/edem/
+
+
+
+#### 🔄 Restore Volumes on Server 2
+- On Server 2, restore all volumes to user directory
+  ```bash
+		docker volume create <volume_name> # if not existing
+		tar -xzvf /home/edem/volume_1.tar.gz -C /var/lib/docker/volumes/<volume_1>/_data
+
+
+
+## 🏗️ Recreate Docker Compose Files
+### 📂 Directory Structure on Server 2
+- On Server 2, create these directories		
+  ```bash
+		mkdir -p ~/nginx-proxy
+		mkdir -p ~/pswiki
+
+#### 📜 **nginx-proxy/docker-compose.yml**
+- On Server 2, change directory into the nginx-proxy using and create a yml file;
+  ```bash
+		sudo cd nginx-proxy
+    sudo nano docker-compose.yml
+---
+- Copy the content below into the docker-compose.yml file.
+-	Press **Ctrl + X** , **Y**, and **Enter** to exit the nano text editor.
+  ```yml
+	services:
   app:
+  	container_name: nginx-proxy-app-1
     image: jc21/nginx-proxy-manager:latest
     ports:
       - "56380:80"
@@ -146,10 +163,13 @@ services:
       - nginx_data:/data
       - nginx_letsencrypt:/etc/letsencrypt
     restart: unless-stopped
-volumes:
-  nginx_data:
-  nginx_letsencrypt:
+	volumes:
+  		nginx_data:
+      nginx_letsencrypt:
 ```
+```
+#### 📜 **nginx-proxy/docker-compose.yml**
+---
 
 **`pswiki/docker-compose.yml`**
 ```yaml
@@ -179,10 +199,10 @@ services:
 volumes:
   pswiki_db-data:
     external: true
+
 ```
 
 ---
-
 ### 6. 🚢 Deploy the Stacks
 
 ```bash
@@ -191,9 +211,9 @@ sudo docker compose -p nginx-proxy up -d
 
 cd ~/pswiki
 sudo docker compose -p pswiki up -d
-```
 
 ---
+uoiso
 
 ### 7. 🔄 Migrating Nginx Proxy Manager with Bind Mounts
 
