@@ -2,7 +2,7 @@
 title: Active Directory Domain Setup
 description: Primary Domain Controller Setup
 published: true
-date: 2025-05-11T19:28:01.541Z
+date: 2025-05-13T21:12:39.909Z
 tags: ad dc, redundant, primary dc, secondary dc
 editor: markdown
 dateCreated: 2025-05-09T09:17:16.534Z
@@ -16,7 +16,7 @@ This guide documents the installation and configuration of Active Directory Doma
 
 Installing AD DS allows you to set up a **Domain Controller (DC)** for centralized authentication and resource management.
 
-### 🛠️ Step 1: Prepare the Server
+### 🛠️ Prepare the Server
 
 Before proceeding, ensure:
 
@@ -32,7 +32,7 @@ Before proceeding, ensure:
 
 ---
 
-### 📦 Step 2: Install the AD DS Role
+### 📦 Install the AD DS Role
 
 **Using Server Manager:**
 
@@ -49,7 +49,7 @@ Before proceeding, ensure:
 
 ---
 
-### 🔼 Step 3: Promote the Server to a Domain Controller
+### 🔼 Promote the Server to a Domain Controller
 
 After installing AD DS, you must promote the server:
 
@@ -67,7 +67,7 @@ After installing AD DS, you must promote the server:
 
 ---
 
-### 🔍 Step 4: Verify Installation
+### 🔍 Verify Installation
 
 Run the following commands in **PowerShell** to confirm the setup:
 
