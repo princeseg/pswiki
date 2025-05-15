@@ -2,7 +2,7 @@
 title: Active Directory Domain Setup
 description: Primary Domain Controller Setup
 published: true
-date: 2025-05-13T21:13:55.592Z
+date: 2025-05-15T15:28:05.870Z
 tags: ad dc, redundant, primary dc, secondary dc
 editor: markdown
 dateCreated: 2025-05-09T09:17:16.534Z
@@ -64,7 +64,7 @@ After installing AD DS, you must promote the server:
 5. Click **Next** through the prompts → Complete the installation → **Restart the server**
 
 > 💡 A secondary DC provides redundancy and load balancing.
-
+{.is-info}
 ---
 
 ## 🔍 Verify Installation
@@ -87,7 +87,7 @@ Run the following commands in **PowerShell** to confirm the setup:
   ```
 
 > 💡 Replication ensures that changes propagate across all domain controllers.
-
+{.is-info}
 ---
 
 ## 🔹 Troubleshooting & Best Practices
