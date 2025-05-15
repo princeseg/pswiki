@@ -1,9 +1,9 @@
 ---
-title: Automated Windows Server Configuration & Deployment
-description: How to Install Windows Server with PowerShell
+title: Automated with Powershell
+description: Automating everyday duties with Powershell
 published: true
-date: 2025-05-15T00:54:48.115Z
-tags: powershell
+date: 2025-05-15T00:56:43.058Z
+tags: powershell, automate, duties
 editor: markdown
 dateCreated: 2025-04-29T23:53:18.793Z
 ---
