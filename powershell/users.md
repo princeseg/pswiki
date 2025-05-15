@@ -2,7 +2,7 @@
 title: Bulk User Account Creation
 description: Creating bulk users from a csv file
 published: true
-date: 2025-05-15T00:15:15.165Z
+date: 2025-05-15T00:17:15.164Z
 tags: users, user account, csv file, bulk, import
 editor: markdown
 dateCreated: 2025-05-15T00:15:15.165Z
@@ -138,7 +138,7 @@ Once confirmed:
 
 ---
 
-## ✅ Post-Import Checks
+## ✔️ Post-Import Checks
 
 - Open **Active Directory Users and Computers**.
 - Browse to each OU.
