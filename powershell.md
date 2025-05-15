@@ -2,13 +2,13 @@
 title: Automated with Powershell
 description: Automating everyday duties with Powershell
 published: true
-date: 2025-05-15T00:56:43.058Z
+date: 2025-05-15T00:57:14.485Z
 tags: powershell, automate, duties
 editor: markdown
 dateCreated: 2025-04-29T23:53:18.793Z
 ---
 
-# Project Synopsis{synopsis}
+# Multi-project synopsis{synopsis}
 ## 🧾 Domain Automation via PowerShell
 
 In today's enterprise IT environments, managing servers and domain infrastructure manually through GUIs is not only tedious but prone to inconsistencies and errors. 💻 By leveraging the power of **PowerShell**, administrators can transform repetitive operations into streamlined, scripted tasks. This project centers around automating key workflows in a **domain-joined Windows Server environment**, reducing manual overhead and improving reliability at every layer of system management.
