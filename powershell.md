@@ -2,7 +2,7 @@
 title: Automated Windows Server Configuration & Deployment
 description: How to Install Windows Server with PowerShell
 published: true
-date: 2025-05-15T00:51:09.468Z
+date: 2025-05-15T00:51:59.640Z
 tags: powershell
 editor: markdown
 dateCreated: 2025-04-29T23:53:18.793Z
@@ -21,6 +21,7 @@ Beyond identity and access, the automation extends into systems administration a
 
 With this foundation in place, the following micro-automation projects offer a practical starting point to bring intelligent, script-based control to your domain. Each one solves a common administrative challenge with clarity, precision, and a touch of PowerShell magic. ✨
 
+---
 
 
 <div class="wikijs-list">
