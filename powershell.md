@@ -2,7 +2,7 @@
 title: Automated Windows Server Configuration & Deployment
 description: How to Install Windows Server with PowerShell
 published: true
-date: 2025-05-15T00:51:59.640Z
+date: 2025-05-15T00:54:48.115Z
 tags: powershell
 editor: markdown
 dateCreated: 2025-04-29T23:53:18.793Z
@@ -75,23 +75,4 @@ With this foundation in place, the following micro-automation projects offer a p
   Generate reports of user logins by pulling logs from domain controllers for audit compliance.
 </div>
 </div>
-
-
-
-
-<li class="config-item">
-  <div class="navigation">
-    <div class="nav-back">
-      <a href="#synopsis" class="back">Top 
-        <span class="label">Beginning</span>
-      </a>
-    </div>
-    <span class="divider"></span>
-    <div class="nav-next">
-      <a href="/powershell/users" class="next">Next
-      <span class="label">User Account Creation </span>
-      </a>
-    </div>
-  </div>
-</li>
 
