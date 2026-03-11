@@ -2,7 +2,7 @@
 title: Wiki Deployment
 description: Deploying wiki
 published: true
-date: 2026-03-11T18:05:14.539Z
+date: 2026-03-11T18:51:43.452Z
 tags: wiki.js, integration
 editor: markdown
 dateCreated: 2026-03-11T18:05:14.539Z
@@ -84,3 +84,19 @@ curl -X POST http://YOUR_SERVER_IP/graphql \
 ```
 
 A JSON list of your pages confirms the API is working.
+
+<li class="config-item">
+  <div class="navigation">
+    <div class="nav-back">
+      <a href="/doc/docker_portainer" class="back">Top 
+        <span class="label">Docker & Portainer</span>
+      </a>
+    </div>
+    <span class="divider"></span>
+    <div class="nav-next">
+      <a href="/doc/n8n" class="next">Next
+      <span class="label">n8n Setup</span>
+      </a>
+    </div>
+  </div>
+</li>
