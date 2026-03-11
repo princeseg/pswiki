@@ -2,7 +2,7 @@
 title:  NAS & Storage Configuration
 description: 
 published: true
-date: 2026-03-11T22:50:18.579Z
+date: 2026-03-11T23:07:57.126Z
 tags: asustor, nas, storage
 editor: markdown
 dateCreated: 2026-03-11T22:50:18.579Z
@@ -92,7 +92,7 @@ In Wiki.js Admin → Storage → Local File System:
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/doc/troubleshoot" class="next">Next
+      <a href="/doc/troubleshooting" class="next">Next
       <span class="label">Troubleshooting Log</span>
       </a>
     </div>
