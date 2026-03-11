@@ -1,8 +1,8 @@
 ---
-title: Automated Security Documentation Pipeline
-description: Monitors Security Alerts and Publishes Documentation
+title: Server and Virtual Machine Setup
+description: Servers and VMs needed for the project.
 published: true
-date: 2026-03-11T18:57:00.793Z
+date: 2026-03-11T19:10:52.272Z
 tags: wazuh, n8n, ollama, siem
 editor: markdown
 dateCreated: 2026-03-11T15:21:40.951Z
