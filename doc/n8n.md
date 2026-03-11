@@ -1,9 +1,9 @@
 ---
 title: n8n Deployment
-description: n
+description: n8n workflow automation tool
 published: true
-date: 2026-03-11T22:22:29.075Z
-tags: 
+date: 2026-03-11T22:30:18.268Z
+tags: n8n, automation, workflow
 editor: markdown
 dateCreated: 2026-03-11T20:45:42.011Z
 ---
