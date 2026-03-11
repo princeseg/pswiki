@@ -2,7 +2,7 @@
 title: Ollama Deployment
 description: Self-hosted Ollama AI model
 published: true
-date: 2026-03-11T22:26:42.698Z
+date: 2026-03-11T22:31:45.260Z
 tags: ollama, ai, ai model
 editor: markdown
 dateCreated: 2026-03-11T22:26:42.698Z
@@ -84,8 +84,8 @@ docker exec -it ollama ollama rm llama3.2:1b
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/doc/ollama" class="next">Next
-      <span class="label">Ollama Deployment</span>
+      <a href="/doc/wazuh" class="next">Next
+      <span class="label">Wazuh Configuration</span>
       </a>
     </div>
   </div>
