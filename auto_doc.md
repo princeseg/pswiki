@@ -2,57 +2,73 @@
 title: Architecture
 description: 
 published: true
-date: 2026-03-11T15:21:40.951Z
-tags: n8n
+date: 2026-03-11T15:28:06.365Z
+tags: wazuh, n8n, ollama, siem
 editor: markdown
 dateCreated: 2026-03-11T15:21:40.951Z
 ---
 
-# Automated Security Documentation Pipeline
-## Project Overview
+# Server & VM Setup
+## Prerequisites
 
-This project builds a fully self-hosted, automated documentation pipeline that monitors 
-your infrastructure with Wazuh, processes security alerts with AI (Ollama), and 
-automatically publishes documentation to Wiki.js.
+- Proxmox VE installed and accessible
+- At least two VMs planned:
+  - **Server 1** (192.168.50.20) – Docker host for n8n, Wiki.js, Ollama
+  - **Server 2** (192.168.50.25) – Wazuh SIEM
 
-> **Info:** This pipeline was built on Proxmox VE with all services running in Docker 
-> containers managed by Portainer.
+> **Info:** Server 1 was initially provisioned with 4GB RAM but was later upgraded 
+> to 10GB to support Ollama running llama3.2:3b alongside other containers.
 {.is-info}
 
-## Architecture
+## Server 1 Specifications (Final)
 
-| Component | Role | Server |
-|-----------|------|--------|
-| Wazuh | Security monitoring & alert generation | Server 2 (192.168.50.25) |
-| n8n | Workflow automation | Server 1 (192.168.50.20) |
-| Ollama (llama3.2:3b) | Local AI documentation generation | Server 1 (192.168.50.20) |
-| Wiki.js | Documentation publishing | Server 1 (192.168.50.20) |
-| Postgres (x2) | Databases for n8n and Wiki.js | Server 1 (192.168.50.20) |
-| Nginx Proxy | Reverse proxy | Server 1 (192.168.50.20) |
-| Asustor NAS | File storage for Wiki.js uploads | 192.168.60.20 |
+| Setting | Value |
+|---------|-------|
+| RAM | 10GB |
+| CPU | 2+ cores |
+| OS | Ubuntu 24 |
+| IP | 192.168.50.20 |
+| Role | Docker host |
 
-## Data Flow
+## Server 2 Specifications
+
+| Setting | Value |
+|---------|-------|
+| RAM | 4GB+ |
+| OS | Ubuntu 24 |
+| IP | 192.168.50.25 |
+| Role | Wazuh SIEM |
+
+## Expanding VM RAM in Proxmox
+
+> **Warning:** Shut down the VM before changing RAM allocation.
+{.is-warning}
+
+1. Log into **Proxmox VE dashboard**
+2. Select the VM in the left sidebar
+3. Click **Hardware** tab
+4. Select **Memory** → Click **Edit**
+5. Change value to **10240 MB** (10GB)
+6. Click **OK**
+7. Click **Start** to boot the VM
+8. Verify on the VM:
+```bash
+free -h
 ```
-Wazuh (Server 2)
-      ↓ webhook POST
-n8n (Server 1)
-      ↓ HTTP POST
-Ollama/llama3.2:3b (Server 1)
-      ↓ AI-generated markdown
-Wiki.js GraphQL API (Server 1)
-      ↓
-Published documentation page
-```
+Expected output shows ~9.7Gi total memory.
 
-## Pages in This Series
-
-1. [Project Overview](/auto-docs/overview) ← You are here
-2. [Server & VM Setup](/auto-docs/server-setup)
-3. [Docker & Portainer Setup](/auto-docs/docker-portainer)
-4. [Wiki.js Deployment](/auto-docs/wikijs)
-5. [n8n Deployment](/auto-docs/n8n)
-6. [Ollama Deployment](/auto-docs/ollama)
-7. [Wazuh Configuration](/auto-docs/wazuh)
-8. [n8n Workflow Configuration](/auto-docs/n8n-workflow)
-9. [NAS & Storage Configuration](/auto-docs/nas-storage)
-10. [Troubleshooting Log](/auto-docs/troubleshooting)
+<li class="config-item">
+  <div class="navigation">
+    <div class="nav-back">
+      <a href="#active-directory" class="back">Top 
+        <span class="label"> Beginning</span>
+      </a>
+    </div>
+    <span class="divider"></span>
+    <div class="nav-next">
+      <a href="/active-directory/replica" class="next">Next
+      <span class="label">Docker & Portainer</span>
+      </a>
+    </div>
+  </div>
+</li>
