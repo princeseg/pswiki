@@ -2,7 +2,7 @@
 title: Docker & Portainer Setup
 description: Initial Setup
 published: true
-date: 2026-03-11T17:57:01.199Z
+date: 2026-03-11T17:58:08.722Z
 tags: docker, portainer, shared network
 editor: markdown
 dateCreated: 2026-03-11T17:12:24.763Z
@@ -32,7 +32,7 @@ docker run -d \
   portainer/portainer-ce:latest
 ```
 
-Access Portainer at: `https://YOUR_SERVER_IP:9443`
+Access Portainer at: `http://YOUR_SERVER_IP:9443`
 
 ## Create Shared Network
 
