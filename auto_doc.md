@@ -2,7 +2,7 @@
 title: Automated Security Documentation Pipeline
 description: Monitors Security Alerts and Publishes Documentation
 published: true
-date: 2026-03-11T15:31:19.446Z
+date: 2026-03-11T17:18:10.172Z
 tags: wazuh, n8n, ollama, siem
 editor: markdown
 dateCreated: 2026-03-11T15:21:40.951Z
@@ -60,13 +60,13 @@ Expected output shows ~9.7Gi total memory.
 <li class="config-item">
   <div class="navigation">
     <div class="nav-back">
-      <a href="#active-directory" class="back">Top 
+      <a href="#auto_doc" class="back">Top 
         <span class="label"> Beginning</span>
       </a>
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/active-directory/replica" class="next">Next
+      <a href="/auto_doc/setup" class="next">Next
       <span class="label">Docker & Portainer</span>
       </a>
     </div>
