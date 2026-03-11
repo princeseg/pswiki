@@ -2,7 +2,7 @@
 title: Docker & Portainer Setup
 description: Setting up Docker and Portainer
 published: true
-date: 2026-03-11T20:06:03.665Z
+date: 2026-03-11T20:08:00.755Z
 tags: docker, portainer, shared network
 editor: markdown
 dateCreated: 2026-03-11T17:12:24.763Z
@@ -59,13 +59,13 @@ sudo docker network inspect shared_network
 <li class="config-item">
   <div class="navigation">
     <div class="nav-back">
-      <a href="/auto_doc" class="back">Top 
+      <a href="/doc/servers" class="back">Top 
         <span class="label">Server & VM Setup </span>
       </a>
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/auto_doc/setup/wiki" class="next">Next
+      <a href="/doc/wiki" class="next">Next
       <span class="label">Wiki Deployment</span>
       </a>
     </div>
