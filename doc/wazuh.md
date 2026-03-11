@@ -2,7 +2,7 @@
 title: Wazuh SIEM Configuration
 description: Wazuh SIEM is an open‑source security monitoring platform that collects logs, detects threats, and helps you respond to incidents in real time
 published: true
-date: 2026-03-11T22:37:55.554Z
+date: 2026-03-11T22:40:44.292Z
 tags: wazuh, siem, monitor, open source, logs, incident, real time
 editor: markdown
 dateCreated: 2026-03-11T22:37:55.554Z
@@ -76,7 +76,7 @@ sudo tail -f /var/ossec/logs/integrations.log
     <span class="divider"></span>
     <div class="nav-next">
       <a href="/doc/n8n_config" class="next">Next
-      <span class="label">n8n Integration</span>
+      <span class="label">n8n Workflow Configuration</span>
       </a>
     </div>
   </div>
