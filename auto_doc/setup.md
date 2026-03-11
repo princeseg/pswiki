@@ -1,8 +1,8 @@
 ---
 title: Docker & Portainer Setup
-description: Initial Setup
+description: Setting up Docker and Portainer
 published: true
-date: 2026-03-11T17:58:08.722Z
+date: 2026-03-11T20:06:03.665Z
 tags: docker, portainer, shared network
 editor: markdown
 dateCreated: 2026-03-11T17:12:24.763Z
