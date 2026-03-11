@@ -2,7 +2,7 @@
 title: Automated Security Documentation Pipeline
 description: Automated documentation pipeline that monitors and document your home lab environment
 published: true
-date: 2026-03-11T20:00:19.407Z
+date: 2026-03-11T23:12:07.714Z
 tags: documentation, pipeline, self-hosted, automated, monitor
 editor: markdown
 dateCreated: 2026-03-11T19:58:34.861Z
@@ -54,7 +54,7 @@ Published documentation page
 6. [Ollama Deployment](/doc/ollama)
 7. [Wazuh Configuration](/doc/wazuh)
 8. [n8n Workflow Configuration](/doc/n8n_workflow)
-9. [NAS & Storage Configuration](/doc/nas_storage)
+9. [NAS & Storage Configuration](/doc/storage)
 10. [Troubleshooting Log](/doc/troubleshooting)
 
 <li class="config-item">
