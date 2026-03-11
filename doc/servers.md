@@ -2,7 +2,7 @@
 title: Server and Virtual Machine Setup
 description: Servers and VMs needed for the project.
 published: true
-date: 2026-03-11T19:10:52.272Z
+date: 2026-03-11T19:12:08.277Z
 tags: wazuh, n8n, ollama, siem
 editor: markdown
 dateCreated: 2026-03-11T15:21:40.951Z
@@ -61,7 +61,7 @@ Expected output shows ~9.7Gi total memory.
   <div class="navigation">
     <div class="nav-back">
       <a href="/doc" class="back">Top 
-        <span class="label">Overiew</span>
+        <span class="label">Overview</span>
       </a>
     </div>
     <span class="divider"></span>
