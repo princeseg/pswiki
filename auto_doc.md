@@ -1,8 +1,8 @@
 ---
-title: Architecture
-description: 
+title: Automated Security Documentation Pipeline
+description: Monitors Security Alerts and Publishes Documentation
 published: true
-date: 2026-03-11T15:28:06.365Z
+date: 2026-03-11T15:31:19.446Z
 tags: wazuh, n8n, ollama, siem
 editor: markdown
 dateCreated: 2026-03-11T15:21:40.951Z
