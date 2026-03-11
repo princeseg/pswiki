@@ -2,7 +2,7 @@
 title: Automated Security Documentation Pipeline
 description: Automated documentation pipeline that monitors and document your home lab environment
 published: true
-date: 2026-03-11T19:58:34.861Z
+date: 2026-03-11T20:00:19.407Z
 tags: documentation, pipeline, self-hosted, automated, monitor
 editor: markdown
 dateCreated: 2026-03-11T19:58:34.861Z
@@ -46,10 +46,10 @@ Published documentation page
 
 ## Pages in This Series
 
-1. [Project Overview](/doc/overview) ← You are here
+1. [Project Overview](/doc) ← You are here
 2. [Server & VM Setup](/doc/servers)
-3. [Docker & Portainer Setup](/docker_portainer)
-4. [Wiki.js Deployment](/doc/wikijs)
+3. [Docker & Portainer Setup](/doc/docker_portainer)
+4. [Wiki.js Deployment](/doc/wiki)
 5. [n8n Deployment](/doc/n8n)
 6. [Ollama Deployment](/doc/ollama)
 7. [Wazuh Configuration](/doc/wazuh)
