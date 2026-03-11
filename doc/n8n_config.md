@@ -2,7 +2,7 @@
 title: n8n Workflow Configuration
 description: n8n workflow configuration is how you set a workflow’s behavior. Things like execution order, error‑handling, and runtime options.
 published: true
-date: 2026-03-11T22:45:56.831Z
+date: 2026-03-11T23:09:54.446Z
 tags: configuration, n8n, error-handling, runtime
 editor: markdown
 dateCreated: 2026-03-11T22:45:56.831Z
