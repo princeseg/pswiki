@@ -2,7 +2,7 @@
 title:  NAS & Storage Configuration
 description: 
 published: true
-date: 2026-03-11T23:11:01.669Z
+date: 2026-03-11T23:11:28.888Z
 tags: asustor, nas, storage
 editor: markdown
 dateCreated: 2026-03-11T22:50:18.579Z
@@ -87,7 +87,7 @@ In Wiki.js Admin → Storage → Local File System:
   <div class="navigation">
     <div class="nav-back">
       <a href="/doc/n8n_workflow" class="back">Top 
-        <span class="label">n8n Configuration</span>
+        <span class="label">n8n Workflow Configuration</span>
       </a>
     </div>
     <span class="divider"></span>
