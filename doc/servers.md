@@ -2,7 +2,7 @@
 title: Server and Virtual Machine Setup
 description: Servers and VMs needed for the project.
 published: true
-date: 2026-03-11T19:12:08.277Z
+date: 2026-03-11T20:09:16.716Z
 tags: wazuh, n8n, ollama, siem
 editor: markdown
 dateCreated: 2026-03-11T15:21:40.951Z
@@ -67,7 +67,7 @@ Expected output shows ~9.7Gi total memory.
     <span class="divider"></span>
     <div class="nav-next">
       <a href="/doc/docker_portainer" class="next">Next
-      <span class="label">Docker & Portainer</span>
+      <span class="label">Docker & Portainer Setup</span>
       </a>
     </div>
   </div>
