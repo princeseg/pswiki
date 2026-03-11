@@ -2,13 +2,13 @@
 title: Automated Security Documentation Pipeline
 description: Monitors Security Alerts and Publishes Documentation
 published: true
-date: 2026-03-11T17:18:10.172Z
+date: 2026-03-11T17:55:53.383Z
 tags: wazuh, n8n, ollama, siem
 editor: markdown
 dateCreated: 2026-03-11T15:21:40.951Z
 ---
 
-# Server & VM Setup
+# Server & VM Setup{#server}
 ## Prerequisites
 
 - Proxmox VE installed and accessible
@@ -60,7 +60,7 @@ Expected output shows ~9.7Gi total memory.
 <li class="config-item">
   <div class="navigation">
     <div class="nav-back">
-      <a href="#auto_doc" class="back">Top 
+      <a href="#server" class="back">Top 
         <span class="label"> Beginning</span>
       </a>
     </div>
