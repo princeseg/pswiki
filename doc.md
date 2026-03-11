@@ -2,7 +2,7 @@
 title: Automated Security Documentation Pipeline
 description: Automated documentation pipeline that monitors and document your home lab environment
 published: true
-date: 2026-03-11T23:12:07.714Z
+date: 2026-03-11T23:14:53.004Z
 tags: documentation, pipeline, self-hosted, automated, monitor
 editor: markdown
 dateCreated: 2026-03-11T19:58:34.861Z
@@ -44,18 +44,24 @@ Wiki.js GraphQL API (Server 1)
 Published documentation page
 ```
 
-## Pages in This Series
+## 📚 Pages in This Series
 
-1. [Project Overview](/doc) ← You are here
-2. [Server & VM Setup](/doc/servers)
-3. [Docker & Portainer Setup](/doc/docker_portainer)
-4. [Wiki.js Deployment](/doc/wiki)
-5. [n8n Deployment](/doc/n8n)
-6. [Ollama Deployment](/doc/ollama)
-7. [Wazuh Configuration](/doc/wazuh)
-8. [n8n Workflow Configuration](/doc/n8n_workflow)
-9. [NAS & Storage Configuration](/doc/storage)
-10. [Troubleshooting Log](/doc/troubleshooting)
+> **Info:** Follow these pages in order for a complete build from scratch.
+{.is-info}
+
+| # | Page | Description |
+|---|------|-------------|
+| 1 | [📋 Project Overview](/doc) | ← **You are here** |
+| 2 | [🖥️ Server & VM Setup](/doc/servers) | Proxmox VM configuration and RAM tuning |
+| 3 | [🐳 Docker & Portainer Setup](/doc/docker_portainer) | Container infrastructure foundation |
+| 4 | [📖 Wiki.js Deployment](/doc/wiki) | Documentation platform with NAS storage |
+| 5 | [⚙️ n8n Deployment](/doc/n8n) | Automation engine with dedicated database |
+| 6 | [🧠 Ollama Deployment](/doc/ollama) | Local AI model setup and network config |
+| 7 | [🔍 Wazuh Configuration](/doc/wazuh) | SIEM webhook integration |
+| 8 | [🔗 n8n Workflow Configuration](/doc/n8n_workflow) | The full automation pipeline |
+| 9 | [💾 NAS & Storage Configuration](/doc/storage) | CIFS mount and permissions |
+| 10 | [🔧 Troubleshooting Log](/doc/troubleshooting) | Every issue hit and how it was solved |
+
 
 <li class="config-item">
   <div class="navigation">
