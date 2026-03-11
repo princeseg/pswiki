@@ -2,7 +2,7 @@
 title: Wiki Deployment
 description: Deploying wiki
 published: true
-date: 2026-03-11T18:51:43.452Z
+date: 2026-03-11T20:02:35.484Z
 tags: wiki.js, integration
 editor: markdown
 dateCreated: 2026-03-11T18:05:14.539Z
