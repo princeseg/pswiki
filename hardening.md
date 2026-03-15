@@ -2,13 +2,13 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T15:44:16.908Z
+date: 2026-03-15T17:17:22.946Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
 ---
 
-# 🔐 Filesystem Kernel Module Hardening Guide
+# 🔐 Filesystem Kernel Module Hardening Guide{#hardening}
 
 This guide explains **why unused filesystem kernel modules should be
 disabled**, how to determine which modules are safe to disable, and
@@ -123,7 +123,8 @@ environment.
 ------------------------------------------------------------------------
 
 ## 📦 Script --- Disable Unused Filesystem Modules
-Script: **disable_unused_fs_modules.sh**
+Using the script below create a bash file : **disable_unused_fs_modules.sh**
+
 ``` bash
 #!/bin/bash
 
@@ -248,3 +249,20 @@ This guide provides:
 - Automated scripts to disable unused modules
 - A recovery script to re‑enable modules when needed
 This approach ensures compliance with CIS benchmarks while maintaining system stability.
+
+<li class="config-item">
+  <div class="navigation">
+    <div class="nav-back">
+      <a href="#hardening" class="back">Top 
+        <span class="label"> Top of Page</span>
+      </a>
+    </div>
+    <span class="divider"></span>
+    <div class="nav-next">
+      <a href="/hardening/automate" class="next">Next
+      <span class="label">Automate Hardening</span>
+      </a>
+    </div>
+  </div>
+</li>
+
