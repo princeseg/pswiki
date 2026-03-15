@@ -2,7 +2,7 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T18:25:23.727Z
+date: 2026-03-15T18:27:53.322Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
@@ -193,8 +193,8 @@ This approach ensures compliance with CIS benchmarks while maintaining system st
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/hardening/automate" class="next">Next
-      <span class="label">Automate Hardening</span>
+      <a href="/hardening/script" class="next">Next
+      <span class="label">Hardening with Script</span>
       </a>
     </div>
   </div>
