@@ -2,7 +2,7 @@
 title: Automate with Bash Script
 description: Automate the hardening process via bash script
 published: true
-date: 2026-03-15T17:40:56.922Z
+date: 2026-03-15T17:46:17.808Z
 tags: bash, script
 editor: markdown
 dateCreated: 2026-03-15T17:40:56.921Z
@@ -171,14 +171,14 @@ After running the script:
 <li class="config-item">
   <div class="navigation">
     <div class="nav-back">
-      <a href="#hardening" class="back">Back 
+      <a href="/hardening/automate" class="back">Back 
         <span class="label"> Linux Server Hardening</span>
       </a>
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="#top" class="next"> End 
-      <span class="label"> Top of Page </span>
+      <a href="/hardening/automate/enable" class="next"> Next 
+      <span class="label"> Enable Modules </span>
       </a>
     </div>
   </div>
