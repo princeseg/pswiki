@@ -2,7 +2,7 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T17:17:22.946Z
+date: 2026-03-15T18:08:11.826Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
@@ -57,6 +57,7 @@ Attackers may:
 ------------------------------------------------------------------------
 
 ## 🛑 Modules With Known CVEs
+The filesystems below have been exposed to known vulnerabilities.
 
 | Module | Filesystem | Typical Purpose | Risk Level | CVE Exposure | System Usage | Recommended Action |
 |------|------|------|------|------|------|------|
@@ -69,8 +70,26 @@ Attackers may:
 ------------------------------------------------------------------------
 
 ## 📁 Filesystems Used by This System
+### 🔍 Step 1 — Check what filesystems the server is using
 
-The following **must NOT be disabled**:
+To check which filesystems are mounted and in-use on the server, run the command below in bash terminal.
+This shows all filesystem types currently mounted.
+```bash
+mount | awk '{print $5}' | sort -u
+```
+
+### 🔍 Step 2 — Check which modules are loaded
+
+```bash
+lsmod
+```
+>If a module appears in **lsmod**, it is in use → **do NOT disable it**
+{.is-danger}
+
+>If it does **not appear**, it is safe to disable.
+{.is-success}
+
+Results from above commands indicate that  **must NOT be disabled**:
 | Module | Purpose | System Function | Risk Level | System Usage | Recommended Action |
 |------|------|------|------|------|------|
 | ext4 | Root filesystem | Primary Linux filesystem used for system storage | Low | ✅ In Use | Do NOT disable |
