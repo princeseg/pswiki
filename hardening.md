@@ -2,83 +2,131 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T15:12:23.629Z
+date: 2026-03-15T15:32:45.922Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
 ---
 
-# Filesystem Kernel Module Hardening Guide
-This guide explains why unused filesystem kernel modules should be disabled, how to determine which modules are safe to disable, and provides automated scripts for both disabling and re‑enabling modules.
+# 🔐 Filesystem Kernel Module Hardening Guide
+
+This guide explains **why unused filesystem kernel modules should be
+disabled**, how to determine which modules are safe to disable, and
+provides **automation scripts to disable and re‑enable them safely**.
+
+> Linux supports many filesystem types through kernel modules which extend the kernel's ability to read and write various filesystem formats.
+{.is-info}
+
+
+------------------------------------------------------------------------
 
 ## 📌 Overview
-Linux supports many filesystem types through kernel modules. These modules extend the kernel’s ability to read, write, and manage different filesystem formats (e.g., CIFS, NFS, EXFAT, FAT, GFS2).
-While useful, these modules increase the attack surface. If a module has a known vulnerability and is not needed by the system, it should be disabled to prevent attackers from loading it and hiding malicious activity inside the kernel.
 
-⚠️ Security Risk Summary
-Unused filesystem modules with known CVEs should be disabled to reduce kernel attack surface.
+Linux filesystems are supported through **kernel modules**.
 
-Attackers can exploit vulnerable modules to:
-- Load malicious kernel code
-- Hide processes or files
-- Maintain persistence undetected
-- Bypass monitoring tools
-Disabling unused modules is a CIS‑recommended hardening step.
+Examples include:
+| Filesystem | Typical Use | Risk Level | CVE Exposure | System Usage |
+|-------------|-------------|------------|--------------|--------------|
+| ext4 | Default Linux filesystem | Low | Rare | ✅ In Use |
+| cifs | Windows network shares | Medium | Occasional | ✅ In Use |
+| nfs | Network file systems | Medium | Occasional | ⚠️ Verify |
+| exfat | External drives | Medium | Known vulnerabilities | ❌ Not Used |
+| fat | Legacy removable media | Medium | Known vulnerabilities | ❌ Not Used |
+| gfs2 | Cluster filesystems | High | Multiple historical CVEs | ❌ Not Used |
 
-🛑 Modules With Known CVEs
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
+While useful, **unused modules increase the kernel attack surface**.
 
+------------------------------------------------------------------------
 
+## ⚠️ Security Risk Summary
 
-📁 Filesystem Modules Your System Uses
-Your system uses:
-- ext4 (root filesystem)
-- cifs (network shares)
-- fuse (AppImages, snaps, tools)
-- overlay (Docker/containers)
-These must not be disabled.
+> Unused filesystem modules with vulnerabilities can allow attackers to
+load malicious kernel components.
+{.is-warning}
 
-🧪 How to Determine Which Modules Are Safe to Disable
-Check mounted filesystems
+Attackers may:
+
+-   Load malicious kernel code
+-   Hide processes or files
+-   Maintain persistence
+-   Bypass monitoring tools
+
+>Disabling unused modules is recommended by CIS Linux Benchmarks.
+{.is-success}
+
+------------------------------------------------------------------------
+
+## 🛑 Modules With Known CVEs
+
+| Module | Filesystem | Typical Purpose | Risk Level | CVE Exposure | System Usage | Recommended Action |
+|------|------|------|------|------|------|------|
+| exfat | External storage | Support for external drives and removable media | Medium | Known vulnerabilities | ❌ Not Used | Disable if unused |
+| fat | Removable media | Legacy filesystem for USB drives and older devices | Medium | Known vulnerabilities | ❌ Not Used | Disable if unused |
+| gfs2 | Cluster filesystem | Shared filesystem used in clustered Linux environments | High | Historical CVEs | ❌ Not Used | Disable unless using cluster storage |
+| nfsd | NFS server | Provides NFS server functionality for network shares | High | Network attack surface | ❌ Not Used | Disable if NFS server not required |
+| fscache | Cache layer | Local caching for network filesystems | Medium | Kernel memory exposure risks | ❌ Not Used | Disable if not required |
+
+------------------------------------------------------------------------
+
+## 📁 Filesystems Used by This System
+
+The following **must NOT be disabled**:
+| Module | Purpose | System Function | Risk Level | System Usage | Recommended Action |
+|------|------|------|------|------|------|
+| ext4 | Root filesystem | Primary Linux filesystem used for system storage | Low | ✅ In Use | Do NOT disable |
+| cifs | Network shares | Enables mounting of Windows/SMB network file shares | Medium | ✅ In Use | Keep enabled if network shares are required |
+| fuse | Snap/AppImage support | Allows user-space filesystem mounting used by Snap and AppImage packages | Low | ✅ In Use | Keep enabled |
+| overlay | Docker container storage | Overlay filesystem used by Docker for container layers | Low | ✅ In Use | Required for Docker containers |
+
+> Disabling these modules can **break** your operating system or containers.
+{.is-danger}
+
+------------------------------------------------------------------------
+
+## 🧪 Determine Which Modules Are Safe to Disable
+
+### Check Mounted Filesystems
+
+``` bash
 mount | awk '{print $5}' | sort -u
+```
 
+### Check Loaded Modules
 
-Check loaded kernel modules
+``` bash
 lsmod
-
+```
 
 A module is safe to disable only if:
-- It does not appear in the mount list
-- It does not appear in the lsmod list
 
-🟢 Safe-to-Disable Modules (Based on Your System)
-These modules are not mounted and not loaded, so they are safe to disable:
-- exfat
-- fat
-- fscache
-- gfs2
-- nfs_common
-- nfsd
-- smbfs_common
+-   It **does not appear in mount output**
+-   It **does not appear in lsmod output**
 
-📦 Script 1 — Automatically Disable Unused Filesystem Modules
-<details><summary><strong>Click to expand script</strong></summary>
-disable_unused_fs_modules.sh
+------------------------------------------------------------------------
+
+## 🟢 Safe‑to‑Disable Modules Example
+
+Based on system analysis:
+
+-   exfat
+-   fat
+-   fscache
+-   gfs2
+-   nfs_common
+-   nfsd
+-   smbfs_common
+
+> These modules can be disabled if they are not required in your
+environment.
+{.is-success}
+
+------------------------------------------------------------------------
+
+## 📦 Script --- Disable Unused Filesystem Modules
+
+``` bash
 #!/bin/bash
 
-# Filesystem modules CIS wants disabled if unused
 MODULES=(
   exfat
   fat
@@ -89,52 +137,37 @@ MODULES=(
   smbfs_common
 )
 
-echo "=== Checking mounted filesystems ==="
 MOUNTED=$(mount | awk '{print $5}' | sort -u)
-echo "$MOUNTED"
-
-echo "=== Checking loaded kernel modules ==="
 LOADED=$(lsmod | awk '{print $1}')
-echo "$LOADED"
-
-echo "=== Determining safe modules to disable ==="
 
 for module in "${MODULES[@]}"; do
-    echo ""
-    echo "--- Checking module: $module ---"
 
-    # Check if module is mounted
     if echo "$MOUNTED" | grep -qw "$module"; then
-        echo "SKIPPED: $module is mounted and in use."
+        echo "SKIPPED: $module is mounted."
         continue
     fi
 
-    # Check if module is loaded
     if echo "$LOADED" | grep -qw "$module"; then
-        echo "SKIPPED: $module is loaded and in use."
+        echo "SKIPPED: $module is loaded."
         continue
     fi
-
-    # Safe to disable
-    echo "DISABLING: $module (unused)"
 
     CONF_FILE="/etc/modprobe.d/${module}.conf"
 
     sudo bash -c "echo 'install $module /bin/false' > $CONF_FILE"
     sudo bash -c "echo 'blacklist $module' >> $CONF_FILE"
 
-    echo "Created: $CONF_FILE"
+    echo "Disabled: $module"
 done
 
-echo ""
-echo "=== Completed. Reboot recommended to apply changes. ==="
+echo "Reboot recommended."
+```
 
+------------------------------------------------------------------------
 
-</details>
+# 🔧 Script --- Re‑Enable a Module
 
-🔧 Script 2 — Re‑Enable Any Disabled Module
-<details><summary><strong>Click to expand script</strong></summary>
-enable_fs_module.sh
+``` bash
 #!/bin/bash
 
 if [ -z "$1" ]; then
@@ -145,58 +178,35 @@ fi
 MODULE="$1"
 CONF_FILE="/etc/modprobe.d/${MODULE}.conf"
 
-echo "=== Re-enabling module: $MODULE ==="
+sudo rm -f "$CONF_FILE"
+sudo modprobe "$MODULE"
 
-# Remove the denylist file
-if [ -f "$CONF_FILE" ]; then
-    sudo rm "$CONF_FILE"
-    echo "Removed: $CONF_FILE"
-else
-    echo "No denylist file found for $MODULE"
-fi
+echo "Module re-enabled if available."
+```
 
-# Try loading the module
-echo "Loading module..."
-sudo modprobe "$MODULE" 2>/dev/null
+------------------------------------------------------------------------
 
-if lsmod | grep -qw "$MODULE"; then
-    echo "SUCCESS: $MODULE is now loaded."
-else
-    echo "WARNING: Could not load $MODULE. It may not exist or may require a reboot."
-fi
+## 🛡️ Safety Notes
 
-
-</details>
+> Never disable modules currently in use.
+{.is-warning}
 
-📘 How the Scripts Work
-Script 1
-- Reads mounted filesystems
-- Reads loaded kernel modules
-- Compares them to the CIS list
-- Disables only unused modules
-- Creates /etc/modprobe.d/<module>.conf files
-Script 2
-- Removes the denylist file
-- Loads the module back into the kernel
-- Confirms successful loading
+Critical modules include:
 
-🛡️ Safety Notes
-Never disable modules that appear in mount or lsmod.
+-   ext4
+-   cifs
+-   fuse
+-   overlay
 
-- Disabling ext4, cifs, fuse, or overlay can break your system.
-- Always reboot after disabling modules to confirm stability.
-- Re‑enabling modules is safe and reversible.
+Always:
 
-📄 Summary
-This guide provides:
-- A clear explanation of filesystem module hardening
-- A safe method to determine which modules can be disabled
-- Automated scripts to disable unused modules
-- A recovery script to re‑enable modules when needed
-This ensures CIS compliance while maintaining system stability.
+-   verify modules first
+-   reboot after changes
+-   document all disabled modules
 
-If you'd like, I can also generate a Wiki.js sidebar navigation, tags, or a version with diagrams to make this even more polished.
 
+> All changes are reversible using the re-enable script.
+{.is-info}
 
 <li class="config-item">
   <div class="navigation">
@@ -207,8 +217,8 @@ If you'd like, I can also generate a Wiki.js sidebar navigation, tags, or a vers
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/hardening/more" class="next">Next
-      <span class="label">more</span>
+      <a href="/hardening" class="next">Next
+      <span class="label">Top</span>
       </a>
     </div>
   </div>
