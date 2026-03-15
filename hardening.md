@@ -2,7 +2,7 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T15:43:19.853Z
+date: 2026-03-15T15:44:16.908Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
@@ -182,7 +182,7 @@ echo "=== Completed. Reboot recommended to apply changes. ==="
 
 ------------------------------------------------------------------------
 
-# 🔧 Script --- Re‑Enable a Module
+## 🔧 Script --- Re‑Enable a Module
 Script: **enablefs_modules.sh**
 ``` bash
 #!/bin/bash
