@@ -2,7 +2,7 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T15:07:02.910Z
+date: 2026-03-15T15:12:23.629Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
@@ -207,8 +207,8 @@ If you'd like, I can also generate a Wiki.js sidebar navigation, tags, or a vers
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/doc/servers" class="next">Next
-      <span class="label">Servers Setup</span>
+      <a href="/hardening/more" class="next">Next
+      <span class="label">more</span>
       </a>
     </div>
   </div>
