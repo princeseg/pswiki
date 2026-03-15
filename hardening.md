@@ -2,7 +2,7 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T18:08:11.826Z
+date: 2026-03-15T18:25:23.727Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
@@ -70,24 +70,6 @@ The filesystems below have been exposed to known vulnerabilities.
 ------------------------------------------------------------------------
 
 ## 📁 Filesystems Used by This System
-### 🔍 Step 1 — Check what filesystems the server is using
-
-To check which filesystems are mounted and in-use on the server, run the command below in bash terminal.
-This shows all filesystem types currently mounted.
-```bash
-mount | awk '{print $5}' | sort -u
-```
-
-### 🔍 Step 2 — Check which modules are loaded
-
-```bash
-lsmod
-```
->If a module appears in **lsmod**, it is in use → **do NOT disable it**
-{.is-danger}
-
->If it does **not appear**, it is safe to disable.
-{.is-success}
 
 Results from above commands indicate that  **must NOT be disabled**:
 | Module | Purpose | System Function | Risk Level | System Usage | Recommended Action |
@@ -121,6 +103,12 @@ A module is safe to disable only if:
 -   It **does not appear in mount output**
 -   It **does not appear in lsmod output**
 
+>If a module appears in **lsmod**, it is in use → **do NOT disable it**
+{.is-danger}
+
+>If it does **not appear**, it is safe to disable.
+{.is-success}
+
 ------------------------------------------------------------------------
 
 ## 🟢 Safe‑to‑Disable Modules Example
@@ -141,110 +129,26 @@ environment.
 
 ------------------------------------------------------------------------
 
-## 📦 Script --- Disable Unused Filesystem Modules
-Using the script below create a bash file : **disable_unused_fs_modules.sh**
-
-``` bash
-#!/bin/bash
-
-# Filesystem modules CIS wants disabled if unused
-MODULES=(
-  exfat
-  fat
-  fscache
-  gfs2
-  nfs_common
-  nfsd
-  smbfs_common
-)
-
-echo "=== Checking mounted filesystems ==="
-MOUNTED=$(mount | awk '{print $5}' | sort -u)
-echo "$MOUNTED"
-
-echo "=== Checking loaded kernel modules ==="
-LOADED=$(lsmod | awk '{print $1}')
-echo "$LOADED"
-
-echo "=== Determining safe modules to disable ==="
-
-for module in "${MODULES[@]}"; do
-    echo ""
-    echo "--- Checking module: $module ---"
-
-    # Check if module is mounted
-    if echo "$MOUNTED" | grep -qw "$module"; then
-        echo "SKIPPED: $module is mounted and in use."
-        continue
-    fi
-
-    # Check if module is loaded
-    if echo "$LOADED" | grep -qw "$module"; then
-        echo "SKIPPED: $module is loaded and in use."
-        continue
-    fi
-
-    # Safe to disable
-    echo "DISABLING: $module (unused)"
-
-    CONF_FILE="/etc/modprobe.d/${module}.conf"
-
-    sudo bash -c "echo 'install $module /bin/false' > $CONF_FILE"
-    sudo bash -c "echo 'blacklist $module' >> $CONF_FILE"
-
-    echo "Created: $CONF_FILE"
-done
-
-echo ""
-echo "=== Completed. Reboot recommended to apply changes. ==="
-
+## 🛠️ Disable modules that are NOT used
+For each unused module, create a denylist file:
+Example for moduule **gfs2**:
+```bash
+echo "install gfs2 /bin/false" > /etc/modprobe.d/gfs2.conf
+echo "blacklist gfs2" >> /etc/modprobe.d/gfs2.conf
 ```
+This does two things:
+- install /bin/false → prevents the module from loading
+- blacklist → prevents auto-loading
 
-------------------------------------------------------------------------
+**Repeat for each unused module.**
 
-## 🔧 Script --- Re‑Enable a Module
-Script: **enablefs_modules.sh**
-``` bash
-#!/bin/bash
+## 🧨 The only real danger
+The only way to break your system is:
 
-if [ -z "$1" ]; then
-    echo "Usage: $0 <module_name>"
-    exit 1
-fi
+> **DISABLING** a filesystem module that your system actually uses.
+{.is-danger}
 
-MODULE="$1"
-CONF_FILE="/etc/modprobe.d/${MODULE}.conf"
-
-echo "=== Re-enabling module: $MODULE ==="
-
-# Remove the denylist file
-if [ -f "$CONF_FILE" ]; then
-    sudo rm "$CONF_FILE"
-    echo "Removed: $CONF_FILE"
-else
-    echo "No denylist file found for $MODULE"
-fi
-
-# Try loading the module
-echo "Loading module..."
-sudo modprobe "$MODULE" 2>/dev/null
-
-if lsmod | grep -qw "$MODULE"; then
-    echo "SUCCESS: $MODULE is now loaded."
-else
-    echo "WARNING: Could not load $MODULE. It may not exist or may require a reboot."
-fi
-
-```
-
-------------------------------------------------------------------------
-
-## 🛡️ Safety Notes
-
-> Never disable modules currently in use.
-{.is-warning}
-
-Critical modules include:
+**Critical modules include:**
 
 -   ext4
 -   cifs
@@ -257,16 +161,27 @@ Always:
 -   reboot after changes
 -   document all disabled modules
 
+## 🔄 How to re‑enable a disabled module
+If you ever need the module again, you just:
+- **Delete the .conf** you file created
 
-> All changes are reversible using the re-enable script.
-{.is-info}
+Example for module **gfs2**:
+```bash
+rm /etc/modprobe.d/gfs2.conf
+```
+- **Reboot** or manually load the module:
+```bash
+modprobe gfs2
+```
+After that, the module works normally again.
 
-## 📝 Summary
-This guide provides:
-- A clear explanation of why filesystem module hardening matters
-- A safe method to determine which modules can be disabled
-- Automated scripts to disable unused modules
-- A recovery script to re‑enable modules when needed
+## 🛡️ The safe workflow
+To avoid breaking anything:
+- Check what filesystems your system uses
+- Only disable modules that are NOT used
+- Reboot to confirm nothing breaks
+- If something breaks → remove the .conf file and reboot
+
 This approach ensures compliance with CIS benchmarks while maintaining system stability.
 
 <li class="config-item">
