@@ -2,7 +2,7 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T15:32:45.922Z
+date: 2026-03-15T15:41:41.076Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
@@ -123,10 +123,11 @@ environment.
 ------------------------------------------------------------------------
 
 ## 📦 Script --- Disable Unused Filesystem Modules
-
+Script: **disable_unused_fs_modules.sh**
 ``` bash
 #!/bin/bash
 
+# Filesystem modules CIS wants disabled if unused
 MODULES=(
   exfat
   fat
@@ -137,36 +138,52 @@ MODULES=(
   smbfs_common
 )
 
+echo "=== Checking mounted filesystems ==="
 MOUNTED=$(mount | awk '{print $5}' | sort -u)
+echo "$MOUNTED"
+
+echo "=== Checking loaded kernel modules ==="
 LOADED=$(lsmod | awk '{print $1}')
+echo "$LOADED"
+
+echo "=== Determining safe modules to disable ==="
 
 for module in "${MODULES[@]}"; do
+    echo ""
+    echo "--- Checking module: $module ---"
 
+    # Check if module is mounted
     if echo "$MOUNTED" | grep -qw "$module"; then
-        echo "SKIPPED: $module is mounted."
+        echo "SKIPPED: $module is mounted and in use."
         continue
     fi
 
+    # Check if module is loaded
     if echo "$LOADED" | grep -qw "$module"; then
-        echo "SKIPPED: $module is loaded."
+        echo "SKIPPED: $module is loaded and in use."
         continue
     fi
+
+    # Safe to disable
+    echo "DISABLING: $module (unused)"
 
     CONF_FILE="/etc/modprobe.d/${module}.conf"
 
     sudo bash -c "echo 'install $module /bin/false' > $CONF_FILE"
     sudo bash -c "echo 'blacklist $module' >> $CONF_FILE"
 
-    echo "Disabled: $module"
+    echo "Created: $CONF_FILE"
 done
 
-echo "Reboot recommended."
+echo ""
+echo "=== Completed. Reboot recommended to apply changes. ==="
+
 ```
 
 ------------------------------------------------------------------------
 
 # 🔧 Script --- Re‑Enable a Module
-
+Script: **enablefs_modules.sh**
 ``` bash
 #!/bin/bash
 
@@ -178,10 +195,26 @@ fi
 MODULE="$1"
 CONF_FILE="/etc/modprobe.d/${MODULE}.conf"
 
-sudo rm -f "$CONF_FILE"
-sudo modprobe "$MODULE"
+echo "=== Re-enabling module: $MODULE ==="
 
-echo "Module re-enabled if available."
+# Remove the denylist file
+if [ -f "$CONF_FILE" ]; then
+    sudo rm "$CONF_FILE"
+    echo "Removed: $CONF_FILE"
+else
+    echo "No denylist file found for $MODULE"
+fi
+
+# Try loading the module
+echo "Loading module..."
+sudo modprobe "$MODULE" 2>/dev/null
+
+if lsmod | grep -qw "$MODULE"; then
+    echo "SUCCESS: $MODULE is now loaded."
+else
+    echo "WARNING: Could not load $MODULE. It may not exist or may require a reboot."
+fi
+
 ```
 
 ------------------------------------------------------------------------
