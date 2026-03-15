@@ -1,9 +1,9 @@
 ---
-title: Automate with Bash Script
-description: Automate the hardening process via bash script
+title: disable_fs_modules.sh script
+description: Bash script to create and run disable_fs_modules.sh script
 published: true
-date: 2026-03-15T18:27:43.254Z
-tags: bash, script
+date: 2026-03-15T18:34:23.667Z
+tags: bash, script, disable
 editor: markdown
 dateCreated: 2026-03-15T17:40:56.921Z
 ---
