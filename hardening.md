@@ -2,7 +2,7 @@
 title: Filesystem Kernel Module Hardening
 description: Disabling unused filesystem kernel modules
 published: true
-date: 2026-03-15T15:41:41.076Z
+date: 2026-03-15T15:43:19.853Z
 tags: kernel, module, filesystem, kernel code, cves
 editor: markdown
 dateCreated: 2026-03-15T15:07:02.910Z
@@ -241,18 +241,10 @@ Always:
 > All changes are reversible using the re-enable script.
 {.is-info}
 
-<li class="config-item">
-  <div class="navigation">
-    <div class="nav-back">
-      <a href="#doc" class="back">Top 
-        <span class="label"> Beginning</span>
-      </a>
-    </div>
-    <span class="divider"></span>
-    <div class="nav-next">
-      <a href="/hardening" class="next">Next
-      <span class="label">Top</span>
-      </a>
-    </div>
-  </div>
-</li>
+## 📝 Summary
+This guide provides:
+- A clear explanation of why filesystem module hardening matters
+- A safe method to determine which modules can be disabled
+- Automated scripts to disable unused modules
+- A recovery script to re‑enable modules when needed
+This approach ensures compliance with CIS benchmarks while maintaining system stability.
