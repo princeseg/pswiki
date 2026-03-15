@@ -2,7 +2,7 @@
 title: Automate with Bash Script
 description: Automate the hardening process via bash script
 published: true
-date: 2026-03-15T18:09:20.282Z
+date: 2026-03-15T18:27:43.254Z
 tags: bash, script
 editor: markdown
 dateCreated: 2026-03-15T17:40:56.921Z
