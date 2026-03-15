@@ -2,7 +2,7 @@
 title: disable_fs_modules.sh script
 description: Bash script to create and run disable_fs_modules.sh script
 published: true
-date: 2026-03-15T18:34:23.667Z
+date: 2026-03-15T18:48:50.498Z
 tags: bash, script, disable
 editor: markdown
 dateCreated: 2026-03-15T17:40:56.921Z
@@ -177,7 +177,7 @@ After running the script:
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/hardening/automate/enable" class="next"> Next 
+      <a href="/hardening/script/enable" class="next"> Next 
       <span class="label"> Enable Modules </span>
       </a>
     </div>
