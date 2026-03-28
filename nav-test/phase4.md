@@ -2,7 +2,7 @@
 title: Phase 4 - Security Hardening
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-03-28T12:05:24.279Z
+date: 2026-03-28T12:55:37.558Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-03-28T12:00:51.051Z
@@ -53,7 +53,7 @@ The Phase 4 security hardening process was completed successfully. The steps tak
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <span style="color:#bdbdbd">No next phase</span>
+      <a href="/nav-test/phase5" class="next">Next <span class="label">Backup Configuration</span></a>
     </div>
   </div>
 </div>
