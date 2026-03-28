@@ -2,7 +2,7 @@
 title: Phase 1 - Infrastructure Setup
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-03-27T00:10:56.208Z
+date: 2026-03-28T11:15:33.887Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-03-27T00:10:56.208Z
@@ -10,53 +10,42 @@ dateCreated: 2026-03-27T00:10:56.208Z
 
 # Phase 1 - Infrastructure Setup
 ## Overview
-On March 27, 2026, at 00:09:41.451Z, the infrastructure setup began. The following steps were completed:
+
+This phase focused on setting up the infrastructure for the project. The steps involved configuring the base server, configuring firewall rules, and updating system packages.
 
 ## Environment
-This document outlines the setup of the on-prem infrastructure. Key details include:
 
-* Server configuration
-* Environment type: on-prem
+* Environment Type: on-prem
+* Key Details:
+	+ Started Date: 2026-03-27T00:13:52.331Z
+	+ Completed Date: 2026-03-28T11:14:37.834Z
+	+ Started by: edem
+	+ Mode: manual
 
 ## Step-by-Step Build Guide
 
-### Step 1: Set up base server configuration
-
+1. Set up base server configuration
 ```bash
-#!/bin/bash
-# Update package list
-sudo apt update -y
-# Upgrade package list
-sudo apt full-upgrade -y
-# Install necessary packages
-sudo apt install -y apache2
-# Configure Apache
-sudo systemctl enable apache2
-sudo systemctl start apache2
+hostnamectl set-hostname server1
 ```
 
-### Step 2: Configure firewall rules
-
+2. Configured firewall rules
 ```bash
-#!/bin/bash
-# Allow incoming traffic on port 80
-sudo ufw allow http
-# Allow incoming traffic on port 443
-sudo ufw allow https
-# Enable the firewall
-sudo ufw enable
+ufw allow 443
+```
+
+3. Updated system packages
+```bash
+apt update && apt upgrade -y
 ```
 
 ## Troubleshooting
-No issues encountered during the setup process.
+
+No issues encountered.
 
 ## Summary
-The infrastructure setup was completed successfully on March 27, 2026, at 00:10:04.673Z. The following essential steps were taken to set up the base server configuration:
 
-1. Updated package list and upgraded package list.
-2. Installed necessary packages (Apache).
-3. Configured Apache.
-4. Configured firewall rules (allowing incoming traffic on ports 80 and 443).
+This phase marked the completion of the initial infrastructure setup. All necessary steps were successfully executed, and the environment is now ready for further development.
 
 <li class="config-item">
   <div class="navigation">
@@ -65,7 +54,7 @@ The infrastructure setup was completed successfully on March 27, 2026, at 00:10:
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <a href="/nav-test/phase1" class="next">Next <span class="label">Infrastructure Setup</span></a>
+      <a href="/nav-test/phase2" class="next">Next <span class="label">Service Deployment</span></a>
     </div>
   </div>
 </li>
