@@ -2,38 +2,31 @@
 title: Phase 2 - Service Deployment
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-03-27T21:40:23.847Z
+date: 2026-03-28T11:41:12.353Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-03-27T21:40:23.847Z
 ---
 
 # Phase 2 - Service Deployment
-
 ## Overview
-This document outlines the steps taken during Phase 2 - Service Deployment on the on-prem environment. The session was initiated by edem and completed successfully on March 27, 2026.
+This document outlines the successful service deployment phase, which took place on March 27, 2026, to March 28, 2026. The deployment was initiated by edem in a manual mode and was completed without any significant issues.
 
 ## Environment
-The service deployment was conducted on the on-prem environment, with the following key details:
-
-- Date: 2026-03-27
-- Start Time: 21:38:58.470Z
-- Completion Time: 21:39:27.624Z
-- User: edem
+The deployment was carried out in an on-prem environment.
 
 ## Step-by-Step Build Guide
 
 1. **Verified all services running**
    ```bash
-   docker ps
-   ```
-   Details: null
+docker ps
+```
 
 ## Troubleshooting
-No issues encountered during the service deployment process. The logs provided show that the session started and completed without any errors.
+No issues encountered during the deployment process.
 
 ## Summary
-The service deployment in the on-prem environment was successful, and the necessary steps were followed to complete the phase. The logs from the session are accurate and provide the exact commands used during the deployment.
+The service deployment phase was completed successfully on March 28, 2026, without any critical issues. The on-prem environment was utilized for the deployment, and all services were verified to be running correctly.
 
 <li class="config-item">
   <div class="navigation">
@@ -42,7 +35,7 @@ The service deployment in the on-prem environment was successful, and the necess
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <span style="color:#bdbdbd">No next phase</span>
+      <a href="/nav-test/phase3" class="next">Next <span class="label">Monitoring Setup</span></a>
     </div>
   </div>
 </li>
