@@ -2,7 +2,7 @@
 title: Phase 6 - Performance Tuning
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-03-28T13:06:46.917Z
+date: 2026-03-28T15:26:02.780Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-03-28T13:06:46.917Z
@@ -47,7 +47,7 @@ This Phase 6 performance tuning focused on optimizing response times using bench
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <span style="color:#bdbdbd">No next phase</span>
+      <a href="/nav-test/phase7" class="next">Next <span class="label">Log Management</span></a>
     </div>
   </div>
 </div>
