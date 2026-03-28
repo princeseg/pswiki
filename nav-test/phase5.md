@@ -2,7 +2,7 @@
 title: Phase 5 - Backup Configuration
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-03-28T12:55:34.843Z
+date: 2026-03-28T13:06:49.817Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-03-28T12:55:34.843Z
@@ -50,7 +50,7 @@ The phase 5 - backup configuration was completed successfully, establishing a re
     </div>
     <span class="divider"></span>
     <div class="nav-next">
-      <span style="color:#bdbdbd">No next phase</span>
+      <a href="/nav-test/phase6" class="next">Next <span class="label">Performance Tuning</span></a>
     </div>
   </div>
 </div>
