@@ -2,7 +2,7 @@
 title: Bug Test Phase 6
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-04-01T00:51:04.579Z
+date: 2026-04-01T00:56:46.806Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-04-01T00:51:04.579Z
@@ -29,3 +29,17 @@ echo test
 <p>&nbsp;</p>
 
 <div class="config-item"><div class="navigation"><div class="nav-back"><a href="/delete-bug-test/phase5" class="back">Previous <span class="label">Bug Test Phase 5</span></a></div><span class="divider"></span><div class="nav-next"><span style="color:#bdbdbd">No next phase</span></div></div></div>
+
+---
+
+<div class="config-item">
+  <div class="navigation">
+    <div class="nav-back">
+      <a href="/delete-bug-test/phase5" class="back">Previous <span class="label">Bug Test Phase 5</span></a>
+    </div>
+    <span class="divider"></span>
+    <div class="nav-next">
+      <a href="/delete-bug-test/phase7" class="next">Next <span class="label">Bug Test Phase 7</span></a>
+    </div>
+  </div>
+</div>
