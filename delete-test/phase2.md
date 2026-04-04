@@ -2,7 +2,7 @@
 title: Delete Test Phase 2
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-04-04T17:52:44.355Z
+date: 2026-04-04T17:55:27.892Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-04-04T17:52:44.355Z
@@ -34,6 +34,6 @@ echo test2
 ## Summary
 The test activity was completed successfully, marking the end of the delete test phase 2. No issues were encountered during the test.
 
-<p>&nbsp;</p>
+---
 
-<div class="config-item"><div class="navigation"><div class="nav-back"><a href="/delete-test/phase1" class="back">Previous <span class="label">Delete Test Phase 1</span></a></div><span class="divider"></span><div class="nav-next"><span style="color:#bdbdbd">No next phase</span></div></div></div>
+<div class="config-item"><div class="navigation"><div class="nav-back"><a href="/delete-test/phase1" class="back">Previous <span class="label">Delete Test Phase 1</span></a></div><span class="divider"></span><div class="nav-next"><a href="//delete-test/phase3" class="next">Next <span class="label">Delete Test Phase 3</span></a></div></div></div>
