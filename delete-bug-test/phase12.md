@@ -2,7 +2,7 @@
 title: Bug Testing Phase 12
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-04-04T12:03:38.969Z
+date: 2026-04-04T12:38:29.517Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-04-04T12:03:38.969Z
@@ -33,6 +33,6 @@ No issues were encountered during the bug testing phase.
 ## Summary
 The bug testing phase for session 12 was completed successfully, and no issues were encountered. The session was started and completed as specified, and the testing was conducted in the on-prem environment.
 
-<p>&nbsp;</p>
+---
 
-<div class="config-item"><div class="navigation"><div class="nav-back"><a href="/delete-bug-test/phase11" class="back">Previous <span class="label">Bug Test Phase 11</span></a></div><span class="divider"></span><div class="nav-next"><span style="color:#bdbdbd">No next phase</span></div></div></div>
+<div class="config-item"><div class="navigation"><div class="nav-back"><a href="/delete-bug-test/phase11" class="back">Previous <span class="label">Bug Test Phase 11</span></a></div><span class="divider"></span><div class="nav-next"><a href="/delete-bug-test/phase13" class="next">Next <span class="label">Nav Bug Fix Test</span></a></div></div></div>
