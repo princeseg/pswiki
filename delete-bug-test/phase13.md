@@ -2,7 +2,7 @@
 title: Nav Bug Fix Test
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-04-04T12:38:22.879Z
+date: 2026-04-04T12:47:28.489Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-04-04T12:38:22.879Z
@@ -58,6 +58,6 @@ No issues encountered during the testing process.
 ## Summary
 This test was completed successfully, and the navigation bug was resolved. The steps outlined in this document should be followed to reproduce the issue and verify the fix.
 
-<p>&nbsp;</p>
+---
 
-<div class="config-item"><div class="navigation"><div class="nav-back"><a href="/delete-bug-test/phase12" class="back">Previous <span class="label">Bug Test Phase 12</span></a></div><span class="divider"></span><div class="nav-next"><span style="color:#bdbdbd">No next phase</span></div></div></div>
+<div class="config-item"><div class="navigation"><div class="nav-back"><a href="/delete-bug-test/phase12" class="back">Previous <span class="label">Bug Test Phase 12</span></a></div><span class="divider"></span><div class="nav-next"><a href="/delete-bug-test/phase14" class="next">Next <span class="label">Nav Bug Fix Test 14</span></a></div></div></div>
