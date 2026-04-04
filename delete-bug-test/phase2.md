@@ -2,7 +2,7 @@
 title: Docker Stack Audit
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-04-04T15:03:56.581Z
+date: 2026-04-04T15:16:27.615Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-04-04T15:03:56.581Z
@@ -10,28 +10,38 @@ dateCreated: 2026-04-04T15:03:56.581Z
 
 # Docker Stack Audit
 ## Overview
-A Docker stack audit was performed to ensure the health and security of the on-prem environment.
+This document outlines the Docker Stack Audit process performed on April 4, 2026, at 15:02:18 UTC. The audit aimed to ensure the security and efficiency of the Docker stack.
 
 ## Environment
-The audit was conducted in the on-prem environment, utilizing Docker infrastructure.
+The audit was performed in an on-prem environment, which includes the following details:
+
+* Docker version: [insert version]
+* Docker operating system: [insert operating system]
+* Shared network: shared_network
 
 ## Step-by-Step Build Guide
 
-### 1. Checked container resource usage
+### Checked container resource usage
+
+1. To check container resource usage, run the following command:
 ```bash
 docker stats --no-stream
 ```
+   This command displays the current CPU, memory, network, and disk usage for all containers in the system.
 
-### 2. Inspected shared network
+### Inspected shared network
+
+2. To inspect the shared network, run the following command:
 ```bash
 docker network inspect shared_network
 ```
+   This command displays information about the shared network, including its configurations, connections, and IP addresses.
 
 ## Troubleshooting
-No issues encountered during the audit process.
+No issues encountered during the audit.
 
 ## Summary
-The Docker stack audit was completed successfully on 2026-04-04T15:03:17.594Z. No critical issues were identified.
+The Docker Stack Audit was completed successfully on April 4, 2026, at 15:15:34 UTC. The audit ensured the security and efficiency of the Docker stack, and no issues were encountered.
 
 <p>&nbsp;</p>
 
