@@ -2,7 +2,7 @@
 title: Docker Stack Audit
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-04-04T16:04:53.405Z
+date: 2026-04-04T16:04:57.236Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-04-04T15:03:56.581Z
