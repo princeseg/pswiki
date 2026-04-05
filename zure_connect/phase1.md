@@ -2,7 +2,7 @@
 title: Azure Connect
 description: Logsmith auto-generated session documentation
 published: true
-date: 2026-04-05T01:02:30.218Z
+date: 2026-04-05T01:40:02.060Z
 tags: logsmith
 editor: markdown
 dateCreated: 2026-04-05T01:02:30.218Z
@@ -30,62 +30,11 @@ Azure CLI not installed
 2. **Install Azure CLI**
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-```
-   Output:
-```
 az --version
 az login
 ```
-   Explanation: The command installs the Azure CLI using a script provided by Microsoft.
 
-3. **Install Azure CLI (Repeat)**
-```bash
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-```
-   Output:
-```
-az --version
-az login
-```
-   Explanation: The command installs the Azure CLI again, as it was required for further configuration.
-
-4. **Service Restart Deferred**
-```bash
-Service restarts being deferred:
-```
-   Explanation: The command indicates that service restarts are being deferred, likely due to package updates or dependencies.
-
-5. **Restart systemd-logind.service**
-```bash
-systemctl restart systemd-logind.service
-```
-   Explanation: The command restarts the systemd-logind.service.
-
-6. **Restart unattended-upgrades.service**
-```bash
-systemctl restart unattended-upgrades.service
-```
-   Explanation: The command restarts the unattended-upgrades.service.
-
-7. **Service Restart Deferred (Repeat)**
-```bash
-Service restarts being deferred:
-```
-   Explanation: The command indicates that service restarts are being deferred, likely due to package updates or dependencies.
-
-8. **Restart systemd-logind.service (Repeat)**
-```bash
-systemctl restart systemd-logind.service
-```
-   Explanation: The command restarts the systemd-logind.service.
-
-9. **Restart unattended-upgrades.service (Repeat)**
-```bash
-systemctl restart unattended-upgrades.service
-```
-   Explanation: The command restarts the unattended-upgrades.service.
-
-10. **Get Azure Account Information**
+3. **Get Azure Account Information**
 ```bash
 az account show
 ```
@@ -93,17 +42,17 @@ az account show
 ```json
 {
   "environmentName": "AzureCloud",
-  "homeTenantId": "e101489c-08e0-455f-99e0-faf1a3294101",
-  "id": "a5f463f6-7008-4651-a13e-fbdff4d3fc5c",
+  "homeTenantId": "458rtgcdf-08e0-455f-99e0-lkiojododji",
+  "id": "a5f463f6-7008-4651-89gh-ytfcnjf3fc5c",
   "isDefault": true,
   "managedByTenants": [],
-  "name": "Edemseg",
+  "name": "Example",
   "state": "Enabled",
-  "tenantDefaultDomain": "princeesegbefiaoutlook.onmicrosoft.com",
+  "tenantDefaultDomain": "eaxampleoutlook.onmicrosoft.com",
   "tenantDisplayName": "Default Directory",
-  "tenantId": "e101489c-08e0-455f-99e0-faf1a3294101",
+  "tenantId": "458rtgcdf-08e0-455f-99e0-lkiojododji",
   "user": {
-    "name": "prince.e.segbefia@outlook.com",
+    "name": "example@outlook.com",
     "type": "user"
   }
 }
